@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
+* {
+    font-family: 'Signika';
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+.inventory-main {
+    width: 1250px;
+    height: 500px;
+    padding: 20px;
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    position: fixed;
+    margin: auto;
+    opacity: 0.9;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%, -50%);
+}
+
+.inventory-main-leftside {
+    position: absolute;
+    width: 515px;
+    height: 406px;
+    left: 20px;
+    top: 80px;
+   /* background-color: yellow;*/
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.inventory-main-leftside > .ItemBoxes > .item-slot-key p {
+    position: absolute;
+    background: #ffffff;
+    color: #000000;
+    padding: .3pt;
+    padding-left: .5pt;
+    padding-right: .5pt;
+    text-align: left;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Signika';
+}
+
+
+.inventory-main-rightside {
+    position: absolute;
+    width: 515px;
+    right: 20px;
+    height: 406px;
+    top: 80px;
+    /*background-color: royalblue; */
+    display: inline-block;
+     overflow-x: hidden;
+    overflow-y: scroll; 
+}
+
+.playername {
+    position: absolute;
+    color: white;
+    /*width: auto; */
+    font-weight: bold;
+    font-family: 'Signika';
+    font-size: 15px;
+    padding-top: 3%;
+    text-shadow: 1px 1px 0px black;
+}
+
+.rightside-name {
+    position: absolute;
+    color: white;
+    font-family: 'Signika';
+    padding-top: 3%;
+    padding-left: 58%;
+    font-weight: bold;
+    font-size: 15px; 
+    text-shadow: 1px 1px 0px black;
+}
+
+#leftside-weight-div {
+    top: 60;
+    right: 760;
+    position: fixed;
+}
+
+.leftside-weight {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Signika';
+    text-shadow: 1px 1px 0px black;
+}
+
+#rightside-weight-div {
+    top: 60;
+    right: 27;
+    position: fixed;
+}
+
+.rightside-weight {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Signika';
+    text-shadow: 1px 1px 0px black;
+}
+
+.ItemBoxes {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.3);
+    float: left;
+    margin: 1px;
+    box-shadow: 0 0 0 1px rgba(38, 38, 38, 0.3) inset;
+} 
+
+.inventory-main-leftside > .ItemBoxes:nth-child(1):after {
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    content: '1';
+    height: 15px !important;
+    width: 15px !important;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: "Basic";
+    text-align: center;
+    line-height: 14px;
+    vertical-align: middle;
+    background-color: white;
+    box-shadow: 0 0 0 1px black inset;
+}
+
+.inventory-main-leftside > .ItemBoxes:nth-child(2):after {
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    content: '2';
+    height: 15px !important;
+    width: 15px !important;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: "Basic";
+    text-align: center;
+    line-height: 14px;
+    vertical-align: middle;
+    background-color: white;
+    box-shadow: 0 0 0 1px black inset;
+}
+
+.inventory-main-leftside > .ItemBoxes:nth-child(3):after {
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    content: '3';
+    height: 15px !important;
+    width: 15px !important;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: "Basic";
+    text-align: center;
+    line-height: 14px;
+    vertical-align: middle;
+    background-color: white;
+    box-shadow: 0 0 0 1px black inset;
+}
+
+.inventory-main-leftside > .ItemBoxes:nth-child(4):after {
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    content: '4';
+    height: 15px !important;
+    width: 15px !important;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: "Basic";
+    text-align: center;
+    line-height: 14px;
+    vertical-align: middle;
+    background-color: white;
+    box-shadow: 0 0 0 1px black inset;
+}
+
+.inventory-main-leftside > .ItemBoxes:nth-child(5):after {
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    content: '5';
+    height: 15px !important;
+    width: 15px !important;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: "Basic";
+    text-align: center;
+    line-height: 14px;
+    vertical-align: middle;
+    background-color: white;
+    box-shadow: 0 0 0 1px black inset;
+}
+
+
+
+.itemboxes-container {
+    height: 130px;
+    min-width: 110px;
+    max-width: 550px;
+    width: fit-content;
+    position: absolute;
+    left: 47%;
+    bottom: 15%;
+    overflow: hidden;
+}
+
+.template {
+    display: none;
+}
+
+.itembox-container {
+    display: none;
+    position: relative;
+    float: left;
+    margin: 0.5px;
+    width: 110px;
+    height: 130px;
+    
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hotbar-container {
+    height: 110px;
+    min-width: 110px;
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+	bottom: 2%;
+    transform: translate(-50%, 0%);
+    overflow: hidden;
+}
+
+.hotslot-container {
+    position: relative;
+    float: left;
+    margin: 0.5px;
+    margin: 1px;
+    width: 110px;
+    height: 110px;
+    
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#itembox-action {
+    position: absolute;
+    background-color: white;
+    padding: 4px;
+    width: 93%;
+    text-align: center;
+    left: 0;
+    right: 35px;
+}
+
+.itembox-img img {
+    display:block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    bottom: -10px;
+
+}
+
+.hotslot-img img {
+    display:block;
+    position: relative;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+	top: 5px;
+}
+
+#itembox-action > p {
+    font-size: 14px;
+    font-family: 'Signika';
+}
+
+#itembox-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(var(--main-label-color), 0.35);
+    min-height: 18px;
+    height: fit-content;
+}
+
+#itembox-label > p {
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: lowercase;
+    font-family: 'Signika';
+    font-variant: small-caps;
+    text-shadow: 1px 1px 0px black;
+}
+
+.item-slot-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.item-slot-img img {
+    display:block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10%;
+    width: auto;
+    height: auto;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.item-slot-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(12, 12, 12, 0.25);
+    height: auto;
+    color: rgb(247, 247, 247);
+    font-size: 10px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Signika';
+    font-variant: small-caps;
+    text-shadow: 1px 1px 0px black;
+}
+
+.item-slot-durability-bar {
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    bottom: 17px;
+    line-height: 1.6pt;
+    text-align: center;
+    background-color: #1d1d1de8;
+    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.item-slot-count {
+    position: absolute;
+    top:2px;
+    right: 2px;
+    text-shadow: 1px 1px 0px black;
+}
+
+.iteminfo {
+    /* position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: steelblue;
+    top: 85%;
+    left: 38%; */
+    font-family: 'Signika';
+    display: none;
+    position: absolute;
+    font-weight: 500;
+    font-size: 14px;
+    top: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 28%;
+    text-shadow: 1px 1px 0px black;
+    background-color: rgba(0,0,0,0.267);
+    user-select: all !important;
+    padding: 5px;
+    color: white;
+}
+
+
+.iteminfo-label {
+    font-size: 15px;
+    font-weight:600;
+
+}
+
+.line {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    border-radius:2px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+
+.item-slot-count p {
+    color: #ffffff;
+    text-align: right;
+    font-size: 11px;
+}
+
+.inv-option-item > p {
+    color: white;
+    text-align: center;
+    line-height: 48px;
+    text-transform: uppercase;
+    font-size: 1.1pt;
+    font-family: Verdana;
+}
+
+
+
+.inv-option-item { 
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 150px;
+    top: 30%;
+    border: none;
+    background-color:rgba(12, 12, 12, 0.35);
+    box-shadow: 0 0 0 1px rgba(38, 38, 38, 0.3) inset;
+    color: white;
+    text-align: center;
+    transition: background-color .1s linear;
+}
+
+.inv-option-item:hover {
+    background-color: rgba(218, 0, 0, 0.2);
+    /* rgba(20, 20, 20, 0.5) */
+}
+
+.use {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 150px;
+    top: 35%;
+    border: none;
+    background-color:rgba(12, 12, 12, 0.35);
+    box-shadow: 0 0 0 1px rgba(38, 38, 38, 0.3) inset;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    transition: 0.2s ease-in-out all;
+    line-height: 40px;
+    font-family: 'Signika';
+    font-size: 90%;
+}
+
+.give {
+    position: relative;
+    display: block;
+    margin: 20 auto;
+    height: 40px;
+    width: 150px;
+    top: 35%;
+    border: none;
+    background-color:rgba(12, 12, 12, 0.35);
+    box-shadow: 0 0 0 1px rgba(38, 38, 38, 0.3) inset;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    transition: 0.2s ease-in-out all;
+    line-height: 40px;
+    font-family: 'Signika';
+    font-size: 90%;
+}
+
+.give:hover {
+    background-color: rgba(218, 0, 0, 0.2);
+}
+
+.use:hover {
+    background-color: rgba(218, 0, 0, 0.2);
+}
+
+.close {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 150px;
+    top: 40%;
+    border: none;
+    color: white;
+    background-color:rgba(12, 12, 12, 0.35);
+    box-shadow: 0 0 0 1px rgba(38, 38, 38, 0.3) inset;
+}
+
+.close:hover {
+    /* border-radius: 2px;
+    border: 1px solid #ffffff;
+    transition: 0.2s ease-in-out all; */
+    background-color: rgba(218, 0, 0, 0.2);
+}
+
+
+
+/* scrollbar Hsn*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+::-webkit-scrollbar
+{
+	width: 4px;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: rgba(0, 0, 0, 0.705);
+}
+
+.ui-draggable-dragging .item-name,
+.ui-draggable-dragging .item-count {
+    display: none;
+}
+
+.ui-draggable-dragging .keybind {
+    display: none;
+}
