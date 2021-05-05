@@ -371,9 +371,8 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 			currency = 'bank'
 			money = xPlayer.getAccount('bank').money
 			if not shopCurrency and money < data.price then
-				item.name = 'money'
-				currency = 'Money'
-				money = xPlayer.getInventoryItem(item.name).count
+				currency = ''
+				money = xPlayer.getAccount('money').money
 			end
 		else
 			item = Items[shopCurrency]
@@ -396,7 +395,7 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 					if currency == 'bank' then
 						xPlayer.removeAccountMoney('bank', data.price)
 					else
-						removeInventoryItem(xPlayer, item.name, data.price)
+						xPlayer.removeAccountMoney('money', data.price)
 					end
 					addInventoryItem(xPlayer, data.name, count, data.metadata, false)
 					if Config.Logs then exports.linden_logs:log(xPlayer, false, ('bought %sx %s from %s for %s'):format(ESX.Math.GroupDigits(count), data.label, shopName, cost), 'items') end
@@ -410,7 +409,7 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 					else
 						missing = ''..ESX.Math.GroupDigits(ESX.Round(data.price - money))..' '..currency
 					end
-					TriggerClientEvent('mythic_notify:client:SendAlert', xPlayer.source, { type = 'error', text = 'You can not afford that (missing '..missing..')' })
+					TriggerClientEvent('mythic_notify:client:SendAlert', xPlayer.source, { type = 'error', text = 'You can not afford that ( missing $'..missing..')' })
 				end
 			end
 		else
