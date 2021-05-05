@@ -1,4 +1,4 @@
-{
+Config.ItemList = {
 	['at_flashlight_pistol'] = { component = {`COMPONENT_AT_PI_FLSH`}, useTime = 2500 },
 	['at_flashlight_rifle'] = { component = {`COMPONENT_AT_AR_FLSH`}, useTime = 2500 },
 	['at_flashlight_shotgun'] = { component = {`COMPONENT_AT_AR_FLSH`}, useTime = 2500 },
