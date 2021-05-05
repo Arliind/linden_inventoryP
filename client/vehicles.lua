@@ -75,5 +75,5 @@ Config.Trunks = {
 	[17] = {41, 328000}, -- service
 	[18] = {41, 328000}, -- emergency
 	[19] = {41, 328000}, -- military
-	[20] = {61, 488000} -- commercial
+	[20] = {61, 1000000} -- commercial
 }
