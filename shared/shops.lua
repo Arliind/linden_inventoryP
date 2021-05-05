@@ -57,6 +57,7 @@ Config.Medicine = {
 	blip = {NULL}, inventory = {
 		{ name = 'medikit', price = 200 },
 		{ name = 'bandage', price = 150 },
+		{ name = 'WEAPON_FIREEXTINGUISHER', price = 500 },
 		{ name = 'cigarette', price = 100 },
 	}
 }
