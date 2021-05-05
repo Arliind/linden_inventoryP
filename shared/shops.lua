@@ -79,7 +79,7 @@ Config.PoliceVending = {
 	}
 }
 
-Config.PoliceKitcehn = {
+Config.PoliceKitchen = {
 	name = 'Kitchen',
 	blip = {NULL}, inventory = {
 		{ name = 'burger', price = 50 },
