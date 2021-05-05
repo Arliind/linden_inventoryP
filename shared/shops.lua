@@ -39,7 +39,7 @@ Config.PoliceArmoury = {
 	blip = {NULL}, inventory = {
 		{ name = 'WEAPON_NIGHTSTICK', price = 1000},
 		{ name = 'WEAPON_COMBATPISTOL', price = 5000, metadata = { registered = true, serial = 'POL', components = { 'flashlight' }, }, license = 'weapon' },
-		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight' } }, license = 'weapon' },
+		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope' } }, license = 'weapon' },
 		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight' } }, license = 'weapon' },
 		{ name = 'WEAPON_STUNGUN', price = 2000, metadata = { registered = true, serial = 'POL'} },
 		{ name = 'ammo-9', price = 15, },
@@ -49,7 +49,6 @@ Config.PoliceArmoury = {
 		{ name = 'armor', price = 1500 },
 		{ name = 'medikit', price = 200 },
 		{ name = 'bandage', price = 100 },
-		{ name = 'cigarette', price = 100 },
 	}
 }
 
@@ -82,6 +81,7 @@ Config.PoliceShop = {
 		{ name = 'water', price = 100 },
 		{ name = 'cola', price = 100 },
 		{ name = 'coffee', price = 100 },
+		{ name = 'cigarette', price = 100 },
 	}
 }
 
