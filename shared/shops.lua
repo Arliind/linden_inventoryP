@@ -69,6 +69,26 @@ Config.Medicine = {
 		}
 }
 
+Config.PoliceVending = {
+	name = 'Vending Machine',
+	blip = {NULL}, inventory = {
+		{ name = 'burger', price = 50 },
+		{ name = 'sandwich', price = 50 },
+		{ name = 'water', price = 25 },
+		{ name = 'cola', price = 50 },
+	}
+}
+
+Config.PoliceKitcehn = {
+	name = 'Kitchen',
+	blip = {NULL}, inventory = {
+		{ name = 'burger', price = 50 },
+		{ name = 'sandwich', price = 50 },
+		{ name = 'water', price = 25 },
+		{ name = 'cola', price = 50 },
+	}
+}
+
 
 Config.Shops = {
 --	{ type = Config.Ammunation, coords = vector3(-662.180, -934.961, 21.829)--[[, currency = 'money']] }, -- can set currency like so
@@ -109,7 +129,8 @@ Config.Shops = {
 --	{ coords = vector3(373.875, 325.896, 103.566), name = '24/7'},
 --	{ coords = vector3(-2544.092, 2316.184, 33.2), name = 'RON'},
 
-	
+	{ type = Config.PoliceVending, coords = vector3(461.16, -982.11, 30.69) },
+	{ type = Config.PoliceKitchen, coords = vector3(1855.12, 3693.57, 38.07) },
 	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(482.47,-995.72, 30.69) },
 	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(1860.67, 3688.76, 34.27) },
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406) },
