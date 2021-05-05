@@ -157,8 +157,8 @@ updateWeight = function(xPlayer, force)
 		Inventories[xPlayer.source].weight = newWeight
 		TriggerClientEvent('linden_inventory:updateStorage', xPlayer.source, {newWeight, Inventories[xPlayer.source].maxWeight, Inventories[xPlayer.source].slots})
 	end
-	SyncAccounts(xPlayer, 'money')
-	SyncAccounts(xPlayer, 'black_money')
+	--SyncAccounts(xPlayer, 'money')
+	--SyncAccounts(xPlayer, 'black_money')
 end
 
 

@@ -110,7 +110,7 @@ end
 
 SyncAccounts = function(xPlayer, name)
 	local account = xPlayer.getAccount(name)
-	account.money = getInventoryItem(xPlayer, name).count
+	--account.money = getInventoryItem(xPlayer, name).count
 	xPlayer.setAccount(account)
 	xPlayer.triggerEvent('esx:setAccountMoney', account)
 end
@@ -183,8 +183,8 @@ SetupShopItems = function(shop)
 	return inventory
 end
 
---[[---	delete all vehicles from `linden_inventory` table where name exists more than once and owner is null (temporary)
-RegisterCommand('cleanvehicles', function(source, args, rawCommand)
+---	delete all vehicles from `linden_inventory` table where name exists more than once and owner is null (temporary)
+--[[RegisterCommand('cleanvehicles', function(source, args, rawCommand)
 	if source > 0 then return end
 	
 	local result = exports.ghmattimysql:executeSync('SELECT name, owner FROM linden_inventory group by name having count(*) >= 2', {})
@@ -194,8 +194,8 @@ RegisterCommand('cleanvehicles', function(source, args, rawCommand)
 		end
 	end
 
-end, true)
-]]---
+end, true)]]
+---
 SaveItems = function(type,id,owner)
 	-- insert  [or type == 'glovebox'] below after type == 'trunk'
 	if id and owner == nil and (type == 'stash' or type == 'trunk') then

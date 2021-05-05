@@ -321,7 +321,8 @@ DrawWeapon = function(item)
 		SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
 		RemoveWeaponFromPed(playerPed, currentWeapon.hash)
 	end
-	GiveWeaponToPed(playerPed, item.hash, 0, true, false)
+	TriggerEvent('linden_inventory:currentWeapon', item)
+	GiveWeaponToPed(playerPed, currentWeapon.hash, 0, true, false)
 	Citizen.Wait(800)
 	SendNUIMessage({ message = 'notify', item = item, text = 'Equipped' })
 end
@@ -341,23 +342,24 @@ AddEventHandler('linden_inventory:weapon', function(item)
 		else
 			item.hash = wepHash
 			DrawWeapon(item)
-			TriggerEvent('linden_inventory:currentWeapon', item)
 			if currentWeapon.metadata.throwable then item.metadata.ammo = 1 end
 			if not item.ammoType then
 				local ammoType = GetAmmoType(item.name)
 				if ammoType then item.ammoType = ammoType end
 			end
+			currentWeapon = item
 			SetCurrentPedWeapon(playerPed, currentWeapon.hash)
 			SetPedCurrentWeaponVisible(playerPed, true, false, false, false)
 			if item.metadata.weapontint then SetPedWeaponTintIndex(playerPed, item.name, item.metadata.weapontint) end
 			if item.metadata.components then
 				for k,v in pairs(item.metadata.components) do
 					local componentHash = ESX.GetWeaponComponent(item.name, v).hash
-					if componentHash then GiveWeaponComponentToPed(playerPed, currentWeapon.hash, componentHash) end
+					if componentHash then GiveWeaponComponentToPed(playerPed, wepHash, componentHash) end
 				end
 			end
 			SetAmmoInClip(playerPed, currentWeapon.hash, item.metadata.ammo)
 			if currentWeapon.name == 'WEAPON_FIREEXTINGUISHER' or currentWeapon.name == 'WEAPON_PETROLCAN' then SetAmmoInClip(playerPed, currentWeapon.hash, 10000) end
+			TriggerEvent('linden_inventory:currentWeapon', currentWeapon)
 		end
 		ClearPedSecondaryTask(playerPed)
 		TriggerEvent('linden_inventory:busy', false)
@@ -674,10 +676,8 @@ TriggerLoops = function()
 					if esxWeapon then TriggerServerEvent('linden_inventory:weaponMismatch', wepHash) end
 				elseif wepHash ~= currentWeapon.hash then
 					local esxWeapon = ESX.GetWeaponFromHash(wepHash)
-					if esxWeapon then DisarmPlayer() end
+					if esxWeapon then TriggerServerEvent('linden_inventory:weaponMismatch', wepHash) end
 				end
-			elseif currentWeapon and not useItemCooldown and currentWeapon.hash then
-				TriggerEvent('linden_inventory:currentWeapon', nil)
 			end
 			Citizen.Wait(1000)
 		end
@@ -791,8 +791,8 @@ RegisterCommand('vehinv', function()
 				TriggerEvent('linden_inventory:closeInventory')
 				break
 			end
-		end
-	end]]
+		end]]
+	end
 end)
 
 RegisterCommand('hotbar', function()
@@ -807,14 +807,14 @@ RegisterCommand('hotbar', function()
 end)
 RegisterKeyMapping('hotbar', 'Display inventory hotbar', 'keyboard', 'tab')
 		
-RegisterKeyMapping('inv', 'Open Player Inventory', 'keyboard', Config.InventoryKey)
-RegisterKeyMapping('vehinv', 'Open Vehicle Trunk', 'keyboard', Config.VehicleInventoryKey)
+RegisterKeyMapping('inv', 'Open player inventory', 'keyboard', Config.InventoryKey)
+RegisterKeyMapping('vehinv', 'Open vehicle trunk', 'keyboard', Config.VehicleInventoryKey)
 
-RegisterCommand('steal', function()
+--[[RegisterCommand('steal', function()
 	if not IsPedInAnyVehicle(playerPed, true) and not invOpen and CanOpenInventory() then	 
 		OpenTargetInventory()
 	end
-end)
+end)]]
 
 RegisterCommand('checkweapon', function()
 	if currentWeapon and ESX.PlayerData.job.name == 'police' then

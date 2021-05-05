@@ -31,8 +31,8 @@ Config.VehicleStorage = {--[[
 ]]}
 
 
---[[ slots, maxWeight; default weight is 8000 per slot
-Config.Gloveboxes = {	
+-- slots, maxWeight; default weight is 8000 per slot
+Config.Gloveboxes = {--[[	
 	[0] = {11, 88000}, -- compact
 	[1] = {11, 88000}, -- sedan
 	[2] = {11, 88000}, -- suv
@@ -53,7 +53,7 @@ Config.Gloveboxes = {
 	[18] = {11, 88000}, -- emergency
 	[19] = {11, 88000}, -- military
 	[20] = {11, 88000} -- commercial (trucks)
-}]]
+]]}
 
 Config.Trunks = {
 	[0] = {21, 168000}, -- compact

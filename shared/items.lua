@@ -203,7 +203,7 @@ Config.ItemList = {
 		disableMove = false,
 		animDict = '',
 		anim = '',
-		useTime = 20000,
+		useTime = 15000,
 		consume = 1,
 		dofirst = 'linden_inventory:smokeweed'
 	},

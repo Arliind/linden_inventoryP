@@ -1,6 +1,7 @@
 ESX = nil
 Items = {}
 Usables = {}
+Players = {}
 Drops = {}
 Inventories = {}
 Datastore = {}
@@ -193,7 +194,7 @@ AddEventHandler('linden_inventory:clearPlayerInventory', function(xPlayer)
 	if xPlayer then
 		Inventories[xPlayer.source].inventory = {}
 		Inventories[xPlayer.source].weight = 0
-		local accounts = {'money', 'black_money'}
+		local accounts = {'black_money'}
 		for i=1, #accounts do
 			local account = xPlayer.getAccount(accounts[i])
 			account.money = 0
@@ -371,7 +372,7 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 			money = xPlayer.getAccount('bank').money
 			if not shopCurrency and money < data.price then
 				item.name = 'money'
-				currency = ''
+				currency = 'Money'
 				money = xPlayer.getInventoryItem(item.name).count
 			end
 		else
@@ -401,14 +402,15 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 					if Config.Logs then exports.linden_logs:log(xPlayer, false, ('bought %sx %s from %s for %s'):format(ESX.Math.GroupDigits(count), data.label, shopName, cost), 'items') end
 				else
 					local missing
-					if currency == 'bank' or item.name == 'money' then
+					if currency == 'bank' then
+					--if currency == 'bank' or item.name == 'money' then
 						missing = '$'..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..currency
 					elseif item.name == 'black_money' then
 						missing = '$'..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..string.lower(item.label)
 					else
 						missing = ''..ESX.Math.GroupDigits(ESX.Round(data.price - money))..' '..currency
 					end
-					TriggerClientEvent('mythic_notify:client:SendAlert', xPlayer.source, { type = 'error', text = 'You can not afford that ( missing $'..missing..')' })
+					TriggerClientEvent('mythic_notify:client:SendAlert', xPlayer.source, { type = 'error', text = 'You can not afford that (missing '..missing..')' })
 				end
 			end
 		else
@@ -739,9 +741,8 @@ AddEventHandler('linden_inventory:weaponMismatch', function(hash)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local weapon = ESX.GetWeaponFromHash(hash).name
 	if not Items[weapon] then TriggerBanEvent(xPlayer, 'using a '..weapon..' but item is invalid')
-	else
-		local count = getInventoryItem(xPlayer, weapon)
-		if count < 1 then TriggerBanEvent(xPlayer, 'using a '..weapon..' but does not have any') end
+	elseif xPlayer.getInventoryItem(weapon).count < 1 then
+		TriggerBanEvent(xPlayer, 'using a '..weapon..' but does not have any')
 	end
 end)
 
@@ -1053,9 +1054,9 @@ RegisterCommand('closeallinv', function(source, args, rawCommand)
 	TriggerClientEvent("linden_inventory:closeInventory", -1)
 end, true)
 
---[[RegisterCommand('maxweight', function(source, args, rawCommand)
+RegisterCommand('maxweight', function(source, args, rawCommand)
 	local xPlayer = ESX.GetPlayerFromId(args[1])
 	if xPlayer then
 		setMaxWeight(xPlayer, tonumber(args[2]))
 	end
-end, true)]]
+end, true)
