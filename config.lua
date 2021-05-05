@@ -18,11 +18,11 @@ Config.WeaponsLicense = true
 Config.WeaponsLicensePrice = 5000
 
 -- Set the name of your logging resource, or false to disable
-Config.Logs = false --'linden_logs'
+Config.Logs = 'linden_logs'
 
 -- Default keymapping for the inventory; players can assign their own
 Config.InventoryKey = 'F2'
-Config.VehicleInventoryKey = 'K'
+Config.VehicleInventoryKey = ','
 
 -- Reload empty weapons automatically
 Config.AutoReload = false
