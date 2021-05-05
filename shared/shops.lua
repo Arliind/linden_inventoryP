@@ -48,6 +48,7 @@ Config.PoliceArmoury = {
 		{ name = 'WEAPON_FLASHLIGHT', price = 500 },
 		{ name = 'armor', price = 1500 },
 		{ name = 'medikit', price = 200 },
+		{ name = 'bandage', price = 100 },
 		{ name = 'cigarette', price = 100 },
 	}
 }
@@ -69,23 +70,18 @@ Config.Medicine = {
 		}
 }
 
-Config.PoliceVending = {
-	name = 'Vending Machine',
+Config.PoliceShop = {
+	name = 'Shop',
 	blip = {NULL}, inventory = {
-		{ name = 'burger', price = 50 },
-		{ name = 'sandwich', price = 50 },
-		{ name = 'water', price = 25 },
-		{ name = 'cola', price = 50 },
-	}
-}
-
-Config.PoliceKitchen = {
-	name = 'Kitchen',
-	blip = {NULL}, inventory = {
-		{ name = 'burger', price = 50 },
-		{ name = 'sandwich', price = 50 },
-		{ name = 'water', price = 25 },
-		{ name = 'cola', price = 50 },
+		{ name = 'burger', price = 100 },
+		{ name = 'sandwich', price = 100 },
+		{ name = 'chip', price = 100 },
+		{ name = 'cashew', price = 100 },
+		{ name = 'panini', price = 100 },
+		{ name = 'dogfood', price = 100 },
+		{ name = 'water', price = 100 },
+		{ name = 'cola', price = 100 },
+		{ name = 'coffee', price = 100 },
 	}
 }
 
@@ -129,11 +125,12 @@ Config.Shops = {
 --	{ coords = vector3(373.875, 325.896, 103.566), name = '24/7'},
 --	{ coords = vector3(-2544.092, 2316.184, 33.2), name = 'RON'},
 
-	{ type = Config.PoliceVending, coords = vector3(461.16, -982.11, 30.69) },
-	{ type = Config.PoliceKitchen, coords = vector3(1855.12, 3693.57, 38.07) },
-	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(482.47,-995.72, 30.69) },
-	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(1860.67, 3688.76, 34.27) },
-	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406) },
-	{ type = Config.Medicine, job = 'ambulance', coords = vector3(203.35, -1645.1, 29.8) },
-	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44) },
+	{ type = Config.PoliceShop, coords = vector3(461.16, -982.11, 30.69), name = 'Vending Machine' }, -- MissionRow PD
+	{ type = Config.PoliceShop, coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriffs Kitchen' }, -- Sheriffs Office, upstairs kitchen
+	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef''s Kitchen' }, -- State HQ
+	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(482.47,-995.72, 30.69) }, -- TPD Office Armoury
+	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(1860.67, 3688.76, 34.27) }, -- Sheriffs Office Armoury
+	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406) }, --
+	{ type = Config.Medicine, job = 'ambulance', coords = vector3(203.35, -1645.1, 29.8) }, --
+	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44) }, -- Flywheels, under the front desk
 }
