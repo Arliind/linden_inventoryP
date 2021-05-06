@@ -40,7 +40,7 @@ Config.PoliceArmory = {
 		{ name = 'WEAPON_NIGHTSTICK', price = 1000},
 		{ name = 'WEAPON_COMBATPISTOL', price = 5000, metadata = { registered = true, serial = 'POL', components = { 'flashlight' }, } },
 		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'grip' } } },
-		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight' } } },
+		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope' } } },
 		{ name = 'WEAPON_STUNGUN', price = 2000, metadata = { registered = true, serial = 'POL'} },
 		{ name = 'ammo-9', price = 15, },
 		{ name = 'ammo-rifle', price = 30, },
@@ -49,14 +49,15 @@ Config.PoliceArmory = {
 		{ name = 'armor', price = 1500 },
 		{ name = 'medikit', price = 200 },
 		{ name = 'bandage', price = 100 },
+		{ name = 'fixkit', price = 500 },
 	}
 }
 
 Config.PoliceSWATArmory = {
 	name = 'SWAT Armory',
 	blip = {NULL}, inventory = {
-		{ name = 'WEAPON_SMG_MK2', price = 20000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'grip', 'clip_extended' } } },
-		{ name = 'WEAPON_SPECIALCARBINE_MK2', price = 35000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'grip', 'clip_extended' } } },
+		{ name = 'WEAPON_ASSAULTSMG', price = 20000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'clip_extended' } } },
+		{ name = 'WEAPON_SPECIALCARBINE', price = 35000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'clip_extended' } } },
 		{ name = 'ammo-9', price = 15, },
 		{ name = 'ammo-rifle', price = 30, },
 		{ name = 'armor', price = 1500 },
@@ -81,6 +82,7 @@ Config.Medicine = {
 			{ name = 'cigarette', price = 25 },
 			{ name = 'WEAPON_PETROLCAN', price = 250 },
 			{ name = 'WEAPON_WRENCH', price = 3000 },
+			{ name = 'fixkit', price = 250 },
 		}
 }
 
@@ -145,8 +147,8 @@ Config.Shops = {
 	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef\'s Kitchen' }, -- State HQ Kitchen
 	{ type = Config.PoliceArmory, job = 'police', coords = vector3(482.47,-995.72, 30.69), name = 'MRPD Armory' }, -- MRPD Armoury
 	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(486.96, -996.97, 30.69), name = 'MRPD SWAT Armory' }, -- MRPD SWAT Armoury
-	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(1860.67, 3688.76, 34.27), name = 'Sheriff SWAT Armory' }, -- Sheriff SWAT Armoury
-	{ type = Config.PoliceArmory, job = 'police', coords = vector3(1860.17, 3690.31, 34.27), name = 'Sheriff Armory' }, -- Sheriff Armoury
+	{ type = Config.PoliceArmory, job = 'police', coords = vector3(1858.84, 3689.93, 34.27), name = 'Sheriff Armory' }, -- Sheriff Armoury
+	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(1863.38, 3689.49, 34.27), name = 'Sheriff SWAT Armory' }, -- Sheriff SWAT Armoury
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406), name = 'Pillbox Medicine Cabinet' }, -- Pillbox Medical Medicine Cabinet
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(203.35, -1645.1, 29.8), name = 'Davis Medicine Cabinet' }, -- Davis Medicine Cabinet
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(1822.79, 3667.06, 34.27), name = 'Sandy Medicine Cabinet' }, -- Sandy Medicine Cabinet
