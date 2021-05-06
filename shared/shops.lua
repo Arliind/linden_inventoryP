@@ -78,8 +78,9 @@ Config.Medicine = {
 	Config.Mechanic = {
 		name = 'Under The Table',
 		blip = {NULL}, inventory = {
-			{ name = 'cigarette', price = 100 },
+			{ name = 'cigarette', price = 25 },
 			{ name = 'WEAPON_PETROLCAN', price = 250 },
+			{ name = 'WEAPON_WRENCH', price = 3000 },
 		}
 }
 
@@ -140,13 +141,13 @@ Config.Shops = {
 --	{ coords = vector3(-2544.092, 2316.184, 33.2), name = 'RON'},
 
 	{ type = Config.PoliceShop, coords = vector3(461.16, -982.11, 30.69), name = 'Vending Machine' }, -- MissionRow PD Vending Machine
-	{ type = Config.PoliceShop, coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriffs Kitchen' }, -- Sheriffs Office, upstairs Kitchen
+	{ type = Config.PoliceShop, coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriff\'s Kitchen' }, -- Sheriffs Office, upstairs Kitchen
 	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef\'s Kitchen' }, -- State HQ Kitchen
 	{ type = Config.PoliceArmory, job = 'police', coords = vector3(482.47,-995.72, 30.69), name = 'MRPD Armory' }, -- MRPD Armoury
 	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(486.96, -996.97, 30.69), name = 'MRPD SWAT Armory' }, -- MRPD SWAT Armoury
-	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(1862.57, 3689.49, 34.27), name = 'Sheriffs SWAT Armory' }, -- Sheriffs Office SWAT Armoury
-	{ type = Config.PoliceArmory, job = 'police', coords = vector3(1860.67, 3688.76, 34.27), name = 'Sheriffs Armory' }, -- Sheriffs Office Armoury
-	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406), name = 'Pilbox Medicine Cabinet' }, -- Pilbox Medical Medicine Cabinet
+	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(1860.67, 3688.76, 34.27), name = 'Sheriff SWAT Armory' }, -- Sheriff SWAT Armoury
+	{ type = Config.PoliceArmory, job = 'police', coords = vector3(1860.17, 3690.31, 34.27), name = 'Sheriff Armory' }, -- Sheriff Armoury
+	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406), name = 'Pillbox Medicine Cabinet' }, -- Pillbox Medical Medicine Cabinet
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(203.35, -1645.1, 29.8), name = 'Davis Medicine Cabinet' }, -- Davis Medicine Cabinet
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(1822.79, 3667.06, 34.27), name = 'Sandy Medicine Cabinet' }, -- Sandy Medicine Cabinet
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
