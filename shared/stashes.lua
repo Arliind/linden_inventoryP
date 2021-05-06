@@ -9,4 +9,5 @@ Config.Stashes = {
 	{ coords = vector3(299.12, -598.02, 43.28), slots = 20, name = 'Fire/EMS Personal Locker', owner = true, job = 'ambulance' }, -- Personal Locker in Pilbox Medical
 	{ coords = vector3(198.4, -1651.01, 29.8), slots = 20, name = 'Fire/EMS Personal Locker', owner = true, job = 'ambulance' }, -- Personal Locker in Davis Firestation
 	{ coords = vector3(1765.89, 3320.97, 41.44), slots = 20, name = 'ADOT Personal Locker', owner = true, job = 'mechanic' }, -- Personal Locker in Flywheels
+	{ coords = vector3(956.58, -966.35, 39.51), slots = 20, name = 'ADOT Personal Belongings', owner = true, job = 'mechanic' }, -- Personal Locker in City Garage (8198)
 }
