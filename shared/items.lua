@@ -154,4 +154,13 @@ Config.ItemList = {
         	event = 'linden_inventory:armor'
 	},
 
+	['light_armor'] = {
+		disableMove = false,
+		animDict = 'clothingtie',
+        	anim = 'try_tie_negative_a',
+        	useTime = 30000,
+        	consume = 1,
+        	event = 'linden_inventory:light_armor'
+	},
+
 }
