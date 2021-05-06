@@ -35,12 +35,12 @@ Config.Ammunation = {
 }
 
 Config.PoliceArmoury = {
-	name = 'Police Armoury',
+	name = 'Police Armory',
 	blip = {NULL}, inventory = {
 		{ name = 'WEAPON_NIGHTSTICK', price = 1000},
-		{ name = 'WEAPON_COMBATPISTOL', price = 5000, metadata = { registered = true, serial = 'POL', components = { 'flashlight' }, }, license = 'weapon' },
-		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope' } }, license = 'weapon' },
-		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight' } }, license = 'weapon' },
+		{ name = 'WEAPON_COMBATPISTOL', price = 5000, metadata = { registered = true, serial = 'POL', components = { 'flashlight' }, } },
+		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope' } } },
+		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight' } } },
 		{ name = 'WEAPON_STUNGUN', price = 2000, metadata = { registered = true, serial = 'POL'} },
 		{ name = 'ammo-9', price = 15, },
 		{ name = 'ammo-rifle', price = 30, },
@@ -128,7 +128,7 @@ Config.Shops = {
 
 	{ type = Config.PoliceShop, coords = vector3(461.16, -982.11, 30.69), name = 'Vending Machine' }, -- MissionRow PD
 	{ type = Config.PoliceShop, coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriffs Kitchen' }, -- Sheriffs Office, upstairs kitchen
-	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef''s Kitchen' }, -- State HQ
+	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef\'s Kitchen' }, -- State HQ
 	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(482.47,-995.72, 30.69) }, -- TPD Office Armoury
 	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(1860.67, 3688.76, 34.27) }, -- Sheriffs Office Armoury
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406) }, --
