@@ -223,6 +223,7 @@ AddEventHandler('linden_inventory:confiscatePlayerInventory', function(xPlayer)
 	end
 end)
 
+RegisterServerEvent('linden_inventory:recoverPlayerInventory')
 AddEventHandler('linden_inventory:recoverPlayerInventory', function(xPlayer)
 	if type(xPlayer) ~= 'table' then xPlayer = ESX.GetPlayerFromId(xPlayer) end
 	if xPlayer.get('linventory') then
