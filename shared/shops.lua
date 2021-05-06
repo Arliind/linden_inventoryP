@@ -49,6 +49,7 @@ Config.PoliceArmory = {
 		{ name = 'armor', price = 1500 },
 		{ name = 'medikit', price = 200 },
 		{ name = 'bandage', price = 100 },
+		{ name = 'fixkit', price = 1000 },
 	}
 }
 
@@ -60,8 +61,6 @@ Config.PoliceSWATArmory = {
 		{ name = 'WEAPON_BZGAS', price = 3000, metadata = { registered = true, serial = 'POL' } },
 		{ name = 'ammo-rifle', price = 30, },
 		{ name = 'armor', price = 1500 },
-		{ name = 'medikit', price = 200 },
-		{ name = 'bandage', price = 100 },
 	}
 }
 
@@ -72,6 +71,7 @@ Config.Medicine = {
 		{ name = 'bandage', price = 150 },
 		{ name = 'WEAPON_FIREEXTINGUISHER', price = 500 },
 		{ name = 'cigarette', price = 100 },
+		{ name = 'fixkit', price = 1000 },
 	}
 }
 
@@ -81,6 +81,7 @@ Config.Medicine = {
 			{ name = 'cigarette', price = 25 },
 			{ name = 'WEAPON_PETROLCAN', price = 250 },
 			{ name = 'WEAPON_WRENCH', price = 3000 },
+			{ name = 'fixkit', price = 1000 },
 		}
 }
 
@@ -151,4 +152,5 @@ Config.Shops = {
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(203.35, -1645.1, 29.8), name = 'Davis Medicine Cabinet' }, -- Davis Medicine Cabinet
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(1822.79, 3667.06, 34.27), name = 'Sandy Medicine Cabinet' }, -- Sandy Medicine Cabinet
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
+	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(950.8, -968.97, 39.51), name = 'Psst! Under The Desk' }, -- City Garage (Postal 8198), under the front desk
 }
