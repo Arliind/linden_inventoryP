@@ -208,4 +208,13 @@ Config.ItemList = {
 		dofirst = 'linden_inventory:smokeweed'
 	},
 
+	['armor'] = {
+		disableMove = false,
+		animDict = 'clothingtie',
+        anim = 'try_tie_negative_a',
+        useTime = 30000,
+        consume = 1,
+        event = 'linden_inventory:armor'
+	},
+
 }
