@@ -1,5 +1,5 @@
 Config.DurabilityDecrease = {
-	['WEAPON_PISTOL'] = 2.0, 
+	['WEAPON_PISTOL'] = 1.2, 
 	['WEAPON_ADVANCEDRIFLE'] = 0.6, 
 	['WEAPON_APPISTOL'] = 0.4, 
 	['WEAPON_ASSAULTRIFLE'] = 0.8, 
