@@ -34,18 +34,31 @@ Config.Ammunation = {
 	}
 }
 
-Config.PoliceArmoury = {
+Config.PoliceArmory = {
 	name = 'Police Armory',
 	blip = {NULL}, inventory = {
 		{ name = 'WEAPON_NIGHTSTICK', price = 1000},
 		{ name = 'WEAPON_COMBATPISTOL', price = 5000, metadata = { registered = true, serial = 'POL', components = { 'flashlight' }, } },
-		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope' } } },
+		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'grip' } } },
 		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight' } } },
 		{ name = 'WEAPON_STUNGUN', price = 2000, metadata = { registered = true, serial = 'POL'} },
 		{ name = 'ammo-9', price = 15, },
 		{ name = 'ammo-rifle', price = 30, },
 		{ name = 'ammo-beanbag', price = 10, },
 		{ name = 'WEAPON_FLASHLIGHT', price = 500 },
+		{ name = 'armor', price = 1500 },
+		{ name = 'medikit', price = 200 },
+		{ name = 'bandage', price = 100 },
+	}
+}
+
+Config.PoliceSWATArmory = {
+	name = 'SWAT Armory',
+	blip = {NULL}, inventory = {
+		{ name = 'WEAPON_SMG_MK2', price = 20000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'grip', 'clip_extended' } } },
+		{ name = 'WEAPON_SPECIALCARBINE_MK2', price = 35000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'grip', 'clip_extended' } } },
+		{ name = 'ammo-9', price = 15, },
+		{ name = 'ammo-rifle', price = 30, },
 		{ name = 'armor', price = 1500 },
 		{ name = 'medikit', price = 200 },
 		{ name = 'bandage', price = 100 },
@@ -126,12 +139,15 @@ Config.Shops = {
 --	{ coords = vector3(373.875, 325.896, 103.566), name = '24/7'},
 --	{ coords = vector3(-2544.092, 2316.184, 33.2), name = 'RON'},
 
-	{ type = Config.PoliceShop, coords = vector3(461.16, -982.11, 30.69), name = 'Vending Machine' }, -- MissionRow PD
-	{ type = Config.PoliceShop, coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriffs Kitchen' }, -- Sheriffs Office, upstairs kitchen
-	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef\'s Kitchen' }, -- State HQ
-	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(482.47,-995.72, 30.69) }, -- TPD Office Armoury
-	{ type = Config.PoliceArmoury, job = 'police', coords = vector3(1860.67, 3688.76, 34.27) }, -- Sheriffs Office Armoury
-	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406) }, --
-	{ type = Config.Medicine, job = 'ambulance', coords = vector3(203.35, -1645.1, 29.8) }, --
-	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44) }, -- Flywheels, under the front desk
+	{ type = Config.PoliceShop, coords = vector3(461.16, -982.11, 30.69), name = 'Vending Machine' }, -- MissionRow PD Vending Machine
+	{ type = Config.PoliceShop, coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriffs Kitchen' }, -- Sheriffs Office, upstairs Kitchen
+	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef\'s Kitchen' }, -- State HQ Kitchen
+	{ type = Config.PoliceArmory, job = 'police', coords = vector3(482.47,-995.72, 30.69), name = 'MRPD Armory' }, -- MRPD Armoury
+	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(486.96, -996.97, 30.69), name = 'MRPD SWAT Armory' }, -- MRPD SWAT Armoury
+	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(1862.57, 3689.49, 34.27), name = 'Sheriffs SWAT Armory' }, -- Sheriffs Office SWAT Armoury
+	{ type = Config.PoliceArmory, job = 'police', coords = vector3(1860.67, 3688.76, 34.27), name = 'Sheriffs Armory' }, -- Sheriffs Office Armoury
+	{ type = Config.Medicine, job = 'ambulance', coords = vector3(306.3687, -601.5139, 43.28406), name = 'Pilbox Medicine Cabinet' }, -- Pilbox Medical Medicine Cabinet
+	{ type = Config.Medicine, job = 'ambulance', coords = vector3(203.35, -1645.1, 29.8), name = 'Davis Medicine Cabinet' }, -- Davis Medicine Cabinet
+	{ type = Config.Medicine, job = 'ambulance', coords = vector3(1822.79, 3667.06, 34.27), name = 'Sandy Medicine Cabinet' }, -- Sandy Medicine Cabinet
+	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
 }
