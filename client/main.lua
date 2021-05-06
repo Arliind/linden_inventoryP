@@ -15,12 +15,20 @@ ClearWeapons = function()
 end
 
 DisarmPlayer = function(weapon)
-	currentWeapon.metadata.ammo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
-	SetPedAmmo(playerPed, currentWeapon.hash, 0)
-	SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
-	RemoveWeaponFromPed(playerPed, currentWeapon.hash)
-	TriggerServerEvent('linden_inventory:updateWeapon', currentWeapon)
-	TriggerEvent('linden_inventory:currentWeapon', nil)
+	if currentWeapon then
+		currentWeapon.metadata.ammo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
+		SetPedAmmo(playerPed, currentWeapon.hash, 0)
+		SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
+		RemoveWeaponFromPed(playerPed, currentWeapon.hash)
+		if currentWeapon.metadata.components then
+			for k,v in pairs(currentWeapon.metadata.components) do
+				local componentHash = ESX.GetWeaponComponent(currentWeapon.name, v).hash
+				if componentHash then RemoveWeaponComponentFromPed(playerPed, currentWeapon.hash, componentHash) end
+			end
+		end
+		TriggerServerEvent('linden_inventory:updateWeapon', currentWeapon)
+		TriggerEvent('linden_inventory:currentWeapon', nil)
+	end
 end
 
 error = function(msg)
@@ -127,6 +135,14 @@ AddEventHandler('randPickupAnim', function()
 	loadAnimDict('pickup_object')
 	TaskPlayAnim(playerPed,'pickup_object', 'putdown_low',5.0, 1.5, 1.0, 48, 0.0, 0, 0, 0)
 	Wait(1000)
+	ClearPedSecondaryTask(playerPed)
+end)
+
+RegisterNetEvent('targetPlayerAnim')
+AddEventHandler('targetPlayerAnim', function()
+	loadAnimDict('mp_ped_interaction')
+	TaskPlayAnimAdvanced(playerPed, 'mp_ped_interaction', 'handshake_guy_b', GetEntityCoords(playerPed, true), 0, 0, GetEntityHeading(playerPed), 1.0, 1.0, 250, 49, 0.2, 0, 0)
+	Wait(400)
 	ClearPedSecondaryTask(playerPed)
 end)
 
@@ -272,6 +288,9 @@ AddEventHandler('linden_inventory:itemNotify', function(item, count, slot, notif
 			if item.name:find('WEAPON_') then TriggerEvent('linden_inventory:checkWeapon', item) end
 		end
 	end
+	if currentInventory and string.find(currentInventory.name, 'Player') then
+		TriggerEvent('targetPlayerAnim')
+	end
 	ESX.SetPlayerData('inventory', ESX.PlayerData.inventory)
 	SendNUIMessage({ message = 'notify', item = item, text = notification })
 end)
@@ -347,6 +366,7 @@ AddEventHandler('linden_inventory:weapon', function(item)
 				local ammoType = GetAmmoType(item.name)
 				if ammoType then item.ammoType = ammoType end
 			end
+			TriggerEvent('linden_inventory:currentWeapon', item)
 			currentWeapon = item
 			SetCurrentPedWeapon(playerPed, currentWeapon.hash)
 			SetPedCurrentWeaponVisible(playerPed, true, false, false, false)
@@ -653,6 +673,8 @@ TriggerLoops = function()
 						if not id or dist > 1.8 or not CanOpenTarget(ped) then
 							TriggerEvent('linden_inventory:closeInventory')
 							error("No longer able to access this inventory")
+						else
+							TaskTurnPedToFaceCoord(playerPed, pedCoords)
 						end
 					elseif not lastVehicle and currentInventory.coords then
 						local dist = #(playerCoords - currentInventory.coords)
@@ -669,17 +691,21 @@ TriggerLoops = function()
 
 	Citizen.CreateThread(function()
 		while PlayerLoaded do
-			local hasWeapon, wepHash = GetCurrentPedWeapon(playerPed, 1)
-			if hasWeapon then
-				if not currentWeapon then
-					local esxWeapon = ESX.GetWeaponFromHash(wepHash)
-					if esxWeapon then TriggerServerEvent('linden_inventory:weaponMismatch', wepHash) end
-				elseif wepHash ~= currentWeapon.hash then
-					local esxWeapon = ESX.GetWeaponFromHash(wepHash)
-					if esxWeapon then TriggerServerEvent('linden_inventory:weaponMismatch', wepHash) end
+			if not useItemCooldown then
+				local hasWeapon, wepHash = GetCurrentPedWeapon(playerPed, 1)
+				if hasWeapon then
+					if not currentWeapon then
+						local esxWeapon = ESX.GetWeaponFromHash(wepHash)
+						if esxWeapon then DisarmPlayer() TriggerServerEvent('linden_inventory:weaponMismatch', esxWeapon.name) end
+					elseif wepHash ~= currentWeapon.hash then
+						local esxWeapon = ESX.GetWeaponFromHash(wepHash)
+						if esxWeapon then DisarmPlayer() end
+					end
+				elseif currentWeapon and currentWeapon.hash then
+					TriggerEvent('linden_inventory:currentWeapon', nil)
 				end
 			end
-			Citizen.Wait(1000)
+			Citizen.Wait(2000)
 		end
 	end)
 end
@@ -848,6 +874,7 @@ RegisterNUICallback('giveItem', function(data, cb)
 	elseif data.inv == 'Playerinv' then
 		if data.amount >= 1 then
 			TriggerServerEvent('linden_inventory:giveItem', data, GetPlayerServerId(closestPlayer))
+			TriggerEvent('randPickupAnim')
 		else error('You must enter an amount to give') end
 	end
 end)

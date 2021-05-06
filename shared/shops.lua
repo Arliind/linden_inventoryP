@@ -1,6 +1,6 @@
 Config.General = {
 	name = 'Shop',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'burger', price = 10 },
 		{ name = 'sandwich', price = 10 },
 		{ name = 'water', price = 10 },
@@ -11,7 +11,7 @@ Config.General = {
 
 Config.Liquor = {
 	name = 'Liquor Store',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'water', price = 10 },
 		{ name = 'cola', price = 10 },
 	}
@@ -19,14 +19,14 @@ Config.Liquor = {
 
 Config.YouTool = {
 	name = 'YouTool',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'lockpick', price = 10 },
 	}
 }
 
 Config.Ammunation = {
 	name = 'Ammunation',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'ammo-9', price = 5, },
 		{ name = 'WEAPON_KNIFE', price = 200 },
 		{ name = 'WEAPON_BAT', price = 100 },
@@ -36,11 +36,11 @@ Config.Ammunation = {
 
 Config.PoliceArmory = {
 	name = 'Police Armory',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'WEAPON_NIGHTSTICK', price = 1000},
 		{ name = 'WEAPON_COMBATPISTOL', price = 5000, metadata = { registered = true, serial = 'POL', components = { 'flashlight' }, } },
 		{ name = 'WEAPON_CARBINERIFLE', price = 10000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'grip' } } },
-		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope' } } },
+		{ name = 'WEAPON_PUMPSHOTGUN', price = 3500, metadata = { registered = true, serial = 'POL', components = { 'flashlight' } } },
 		{ name = 'WEAPON_STUNGUN', price = 2000, metadata = { registered = true, serial = 'POL'} },
 		{ name = 'ammo-9', price = 15, },
 		{ name = 'ammo-rifle', price = 30, },
@@ -49,16 +49,15 @@ Config.PoliceArmory = {
 		{ name = 'armor', price = 1500 },
 		{ name = 'medikit', price = 200 },
 		{ name = 'bandage', price = 100 },
-		{ name = 'fixkit', price = 500 },
 	}
 }
 
 Config.PoliceSWATArmory = {
 	name = 'SWAT Armory',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'WEAPON_ASSAULTSMG', price = 20000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'clip_extended' } } },
 		{ name = 'WEAPON_SPECIALCARBINE', price = 35000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'clip_extended' } } },
-		{ name = 'ammo-9', price = 15, },
+		{ name = 'WEAPON_BZGAS', price = 3000, metadata = { registered = true, serial = 'POL' } },
 		{ name = 'ammo-rifle', price = 30, },
 		{ name = 'armor', price = 1500 },
 		{ name = 'medikit', price = 200 },
@@ -68,7 +67,7 @@ Config.PoliceSWATArmory = {
 
 Config.Medicine = {
 	name = 'Medicine Cabinet',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'medikit', price = 200 },
 		{ name = 'bandage', price = 150 },
 		{ name = 'WEAPON_FIREEXTINGUISHER', price = 500 },
@@ -78,17 +77,16 @@ Config.Medicine = {
 
 	Config.Mechanic = {
 		name = 'Under The Table',
-		blip = {NULL}, inventory = {
+		inventory = {
 			{ name = 'cigarette', price = 25 },
 			{ name = 'WEAPON_PETROLCAN', price = 250 },
 			{ name = 'WEAPON_WRENCH', price = 3000 },
-			{ name = 'fixkit', price = 250 },
 		}
 }
 
 Config.PoliceShop = {
 	name = 'Shop',
-	blip = {NULL}, inventory = {
+	inventory = {
 		{ name = 'burger', price = 100 },
 		{ name = 'sandwich', price = 100 },
 		{ name = 'chip', price = 100 },

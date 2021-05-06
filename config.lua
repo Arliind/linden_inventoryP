@@ -8,7 +8,7 @@ Config.CheckVersionDelay = 60
 Config.PlayerSlots = 50
 
 -- Regular carry weight, can be increased by backpacks through esx_skin
-Config.PlayerWeight = 30000
+Config.PlayerWeight = 15000
 
 -- Blur the screen while in an inventory
 Config.EnableBlur = true
@@ -22,7 +22,7 @@ Config.Logs = 'linden_logs'
 
 -- Default keymapping for the inventory; players can assign their own
 Config.InventoryKey = 'F2'
-Config.VehicleInventoryKey = ','
+Config.VehicleInventoryKey = 'comma'
 
 -- Reload empty weapons automatically
 Config.AutoReload = false

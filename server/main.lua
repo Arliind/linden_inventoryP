@@ -9,6 +9,15 @@ Shops = {}
 Opened = {}
 Status = {'starting', ''}
 
+AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
+	deferrals.defer()
+	Citizen.Wait(1000)
+	if Status[1] ~= 'ready' then
+		deferrals.done('Inventory system has not yet loaded')
+	else
+		deferrals.done()
+	end
+end)
 
 local failed = function(msg)
 	Status[1], Status[2] = 'error', msg
@@ -74,16 +83,14 @@ exports.ghmattimysql:ready(function()
 				if not Items[k] then
 					--print (' ('..k..', '..k..', 115, 1, 1, 1, NULL), ')
 					count = count + 1
-					for k, v in pairs(result) do
-						Items[k] = {
-							name = k,
-							label = k,
-							weight = 0,
-							stackable = 1,
-							description = 'Item not added to database',
-							closeonuse = 1
-						}
-					end
+					Items[k] = {
+						name = k,
+						label = k,
+						weight = 0,
+						stackable = 1,
+						description = 'Item not added to database',
+						closeonuse = 1
+					}
 				end
 			end
 			if count > 0 then message('Created '..count..' dummy items', 2) end
@@ -729,12 +736,15 @@ AddEventHandler('linden_inventory:devtool', function()
 end)
 
 RegisterNetEvent('linden_inventory:weaponMismatch')
-AddEventHandler('linden_inventory:weaponMismatch', function(hash)
+AddEventHandler('linden_inventory:weaponMismatch', function(weapon)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local weapon = ESX.GetWeaponFromHash(hash).name
-	if not Items[weapon] then TriggerBanEvent(xPlayer, 'using a '..weapon..' but item is invalid')
-	elseif xPlayer.getInventoryItem(weapon).count < 1 then
-		TriggerBanEvent(xPlayer, 'using a '..weapon..' but does not have any')
+	if xPlayer then
+		if Items[weapon] then
+			local count = getInventoryItem(xPlayer, weapon).count
+			if count < 1 then TriggerBanEvent(xPlayer, 'using "'..weapon..'" but item count is '..count) end
+		else
+			TriggerBanEvent(xPlayer, 'using "'..weapon..'" but item is invalid')
+		end
 	end
 end)
 
@@ -1046,9 +1056,9 @@ RegisterCommand('closeallinv', function(source, args, rawCommand)
 	TriggerClientEvent("linden_inventory:closeInventory", -1)
 end, true)
 
-RegisterCommand('maxweight', function(source, args, rawCommand)
+--[[RegisterCommand('maxweight', function(source, args, rawCommand)
 	local xPlayer = ESX.GetPlayerFromId(args[1])
 	if xPlayer then
 		setMaxWeight(xPlayer, tonumber(args[2]))
 	end
-end, true)
+end, true)]]
