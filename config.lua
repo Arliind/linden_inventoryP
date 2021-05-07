@@ -14,7 +14,7 @@ Config.PlayerWeight = 15000
 Config.EnableBlur = true
 
 -- Requires esx_licenses
-Config.WeaponsLicense = true
+Config.WeaponsLicense = false
 Config.WeaponsLicensePrice = 5000
 
 -- Set the name of your logging resource, or false to disable
