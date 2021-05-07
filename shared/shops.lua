@@ -101,6 +101,13 @@ Config.PoliceShop = {
 	}
 }
 
+Config.BlackMarket = {
+	name = 'If you find this then fuck off',
+	inventory = {
+		{ name = 'WEAPON_ASSAULTSMG', price = 1000000000, metadata = { registered = false, description = 'Serial Number: -/----/-/-/----/-/-', components = { 'flashlight', 'scope', 'clip_extended' } } },
+	}
+}
+
 
 Config.Shops = {
 --	{ type = Config.Ammunation, coords = vector3(-662.180, -934.961, 21.829)--[[, currency = 'money']] }, -- can set currency like so
@@ -153,4 +160,5 @@ Config.Shops = {
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(1822.79, 3667.06, 34.27), name = 'Sandy Medicine Cabinet' }, -- Sandy Medicine Cabinet
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(950.8, -968.97, 39.51), name = 'Psst! Under The Desk' }, -- City Garage (Postal 8198), under the front desk
+	{ type = Config.BlackMarket, job = 'police', coords = vector3(1240.49, -2898.14, 32.21) }, -- BlackMarket by the docks
 }
