@@ -1053,6 +1053,15 @@ end, true, {help = 'Return a Confiscated an Inventory', validate = true, argumen
 	{name = 'playerId', help = 'player id', type = 'player'},
 }})
 
+RegisterCommand('serverconf', function(xPlayer, args, rawCommand)
+	TriggerEvent('linden_inventory:confiscatePlayerInventory', args.playerID)
+end, true)
+
+RegisterCommand('serverreturn', function(xPlayer, args, rawCommand)
+	TriggerEvent('linden_inventory:recoverPlayerInventory', args.playerID)
+end, true)
+
+
 -- Close all inventories before restarting to be safe
 RegisterCommand('closeallinv', function(source, args, rawCommand)
 	if source > 0 then return end
