@@ -1053,22 +1053,11 @@ end, true, {help = 'Return a Confiscated an Inventory', validate = true, argumen
 	{name = 'playerId', help = 'player id', type = 'player'},
 }})
 
--- Server Confiscate Inventory Command
-RegisterCommand('serverconf', function(xPlayer, args, rawCommand)
-	TriggerEvent('linden_inventory:confiscatePlayerInventory', args.playerID)
-end, true)
-
--- Server Return Inventory Command
-RegisterCommand('serverreturn', function(xPlayer, args, rawCommand)
-	TriggerEvent('linden_inventory:recoverPlayerInventory', args.playerID)
-end, true)
-
-
 -- Close all inventories before restarting to be safe
-RegisterCommand('closeallinv', function(source, args, rawCommand)
+--[[RegisterCommand('closeallinv', function(source, args, rawCommand)
 	if source > 0 then return end
 	TriggerClientEvent("linden_inventory:closeInventory", -1)
-end, true)
+end, true)]]
 
 --[[RegisterCommand('maxweight', function(source, args, rawCommand)
 	local xPlayer = ESX.GetPlayerFromId(args[1])
