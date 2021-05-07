@@ -1053,10 +1053,12 @@ end, true, {help = 'Return a Confiscated an Inventory', validate = true, argumen
 	{name = 'playerId', help = 'player id', type = 'player'},
 }})
 
+-- Server Confiscate Inventory Command
 RegisterCommand('serverconf', function(xPlayer, args, rawCommand)
 	TriggerEvent('linden_inventory:confiscatePlayerInventory', args.playerID)
 end, true)
 
+-- Server Return Inventory Command
 RegisterCommand('serverreturn', function(xPlayer, args, rawCommand)
 	TriggerEvent('linden_inventory:recoverPlayerInventory', args.playerID)
 end, true)
