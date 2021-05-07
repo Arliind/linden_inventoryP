@@ -56,7 +56,7 @@ AddEventHandler('linden_inventory:armor', function()
 end)
 
 RegisterNetEvent('linden_inventory:light_armor')
-AddEventHandler('linden_inventory:armor', function()
+AddEventHandler('linden_inventory:light_armor', function()
     local playerPed = GetPlayerPed(-1)
     SetPedArmour(playerPed, 30)
     inform('Light Armor Equiped')
