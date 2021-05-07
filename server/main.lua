@@ -196,6 +196,7 @@ AddEventHandler('linden_inventory:setPlayerInventory', function(xPlayer, data)
 	xPlayer.set('linventory', true)
 end)
 
+RegisterServerEvent('linden_inventory:clearPlayerInventory')
 AddEventHandler('linden_inventory:clearPlayerInventory', function(xPlayer)
 	if type(xPlayer) ~= 'table' then xPlayer = ESX.GetPlayerFromId(xPlayer) end
 	if xPlayer then
@@ -207,6 +208,7 @@ AddEventHandler('linden_inventory:clearPlayerInventory', function(xPlayer)
 	end
 end)
 
+RegisterServerEvent('linden_inventory:confiscatePlayerInventory')
 AddEventHandler('linden_inventory:confiscatePlayerInventory', function(xPlayer)
 	if type(xPlayer) ~= 'table' then xPlayer = ESX.GetPlayerFromId(xPlayer) end
 	if xPlayer.get('linventory') then
@@ -221,6 +223,7 @@ AddEventHandler('linden_inventory:confiscatePlayerInventory', function(xPlayer)
 	end
 end)
 
+RegisterServerEvent('linden_inventory:recoverPlayerInventory')
 AddEventHandler('linden_inventory:recoverPlayerInventory', function(xPlayer)
 	if type(xPlayer) ~= 'table' then xPlayer = ESX.GetPlayerFromId(xPlayer) end
 	if xPlayer.get('linventory') then
@@ -1049,6 +1052,17 @@ ESX.RegisterCommand('returninv', 'superadmin', function(xPlayer, args, showError
 end, true, {help = 'Return a Confiscated an Inventory', validate = true, arguments = {
 	{name = 'playerId', help = 'player id', type = 'player'},
 }})
+
+-- Server Confiscate Inventory Command
+RegisterCommand('serverconf', function(xPlayer, args, rawCommand)
+	TriggerEvent('linden_inventory:confiscatePlayerInventory', args.playerID)
+end, true)
+
+-- Server Return Inventory Command
+RegisterCommand('serverreturn', function(xPlayer, args, rawCommand)
+	TriggerEvent('linden_inventory:recoverPlayerInventory', args.playerID)
+end, true)
+
 
 -- Close all inventories before restarting to be safe
 RegisterCommand('closeallinv', function(source, args, rawCommand)
