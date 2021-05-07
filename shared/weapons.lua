@@ -53,8 +53,8 @@ Config.DurabilityDecrease = {
 	['WEAPON_STUNGUN'] = 0.6, 
 	['WEAPON_SWITCHBLADE'] = 1.0, 
 	['WEAPON_VINTAGEPISTOL'] = 3.0, 
-	['WEAPON_WRENCH'] = 1.0
-	['WEAPON_MARKSMANRIFLE'] = 50.0, 
+	['WEAPON_WRENCH'] = 1.0,
+	['WEAPON_MARKSMANRIFLE'] = 50.0
 }
 
 Config.Throwable = {

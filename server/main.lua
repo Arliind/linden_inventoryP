@@ -196,6 +196,7 @@ AddEventHandler('linden_inventory:setPlayerInventory', function(xPlayer, data)
 	xPlayer.set('linventory', true)
 end)
 
+RegisterServerEvent('linden_inventory:clearPlayerInventory')
 AddEventHandler('linden_inventory:clearPlayerInventory', function(xPlayer)
 	if type(xPlayer) ~= 'table' then xPlayer = ESX.GetPlayerFromId(xPlayer) end
 	if xPlayer then
@@ -207,6 +208,7 @@ AddEventHandler('linden_inventory:clearPlayerInventory', function(xPlayer)
 	end
 end)
 
+RegisterServerEvent('linden_inventory:confiscatePlayerInventory')
 AddEventHandler('linden_inventory:confiscatePlayerInventory', function(xPlayer)
 	if type(xPlayer) ~= 'table' then xPlayer = ESX.GetPlayerFromId(xPlayer) end
 	if xPlayer.get('linventory') then
@@ -221,6 +223,7 @@ AddEventHandler('linden_inventory:confiscatePlayerInventory', function(xPlayer)
 	end
 end)
 
+RegisterServerEvent('linden_inventory:recoverPlayerInventory')
 AddEventHandler('linden_inventory:recoverPlayerInventory', function(xPlayer)
 	if type(xPlayer) ~= 'table' then xPlayer = ESX.GetPlayerFromId(xPlayer) end
 	if xPlayer.get('linventory') then
