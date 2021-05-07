@@ -245,7 +245,7 @@ Config.ItemList = {
 	},
 
 	['armor'] = {
-		disableMove = false,
+		disableMove = true,
 		animDict = 'clothingtie',
         	anim = 'try_tie_negative_a',
         	useTime = 30000,
@@ -254,12 +254,21 @@ Config.ItemList = {
 	},
 
 	['light_armor'] = {
-		disableMove = false,
+		disableMove = true,
 		animDict = 'clothingtie',
-        	anim = 'try_tie_negative_a',
-        	useTime = 30000,
-        	consume = 1,
-        	event = 'linden_inventory:light_armor'
+        anim = 'try_tie_negative_a',
+        useTime = 30000,
+        consume = 1,
+        event = 'linden_inventory:light_armor'
+	},
+
+	['fixkit'] = {
+		disableMove = true,
+		animDict = '',
+        anim = '',
+        useTime = 30000,
+        consume = 1,
+        event = 'linden_inventory:onFixkit'
 	},
 
 	['cigarette'] = {

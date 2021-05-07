@@ -36,6 +36,35 @@ AddEventHandler('linden_inventory:coffee', function()
     TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
 end)
 
+RegisterNetEvent('linden_inventory:onFixkit')
+AddEventHandler('linden_inventory:onFixkit', function()
+	local playerPed = PlayerPedId()
+	local coords    = GetEntityCoords(playerPed)
+
+	if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 5.0) then
+		local vehicle
+
+		if IsPedInAnyVehicle(playerPed, false) then
+			vehicle = GetVehiclePedIsIn(playerPed, false)
+		else
+			vehicle = GetClosestVehicle(coords.x, coords.y, coords.z, 5.0, 0, 71)
+		end
+
+		if DoesEntityExist(vehicle) then
+			TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
+			Citizen.CreateThread(function()
+                --exports['progressBars']:startUI(30000, "Repairing Vehicle")
+				--Citizen.Wait(30000)
+				SetVehicleFixed(vehicle)
+				SetVehicleDeformationFixed(vehicle)
+				SetVehicleUndriveable(vehicle, false)
+				ClearPedTasksImmediately(playerPed)
+                exports['t-notify']:Alert({style = 'success', message = 'Vehicle has been repaired'})
+			end)
+		end
+	end
+end)
+
 AddEventHandler('linden_inventory:bandage', function()
 	local maxHealth = 200
 	local health = GetEntityHealth(playerPed)
