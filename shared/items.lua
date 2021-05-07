@@ -116,6 +116,105 @@ Config.ItemList = {
 	['at_skin_sniper_patriotic'] = { component = {`COMPONENT_HEAVYSNIPER_MK2_CAMO_IND_01`, `COMPONENT_MARKSMANRIFLE_MK2_CAMO_IND_01`}, useTime = 2500 },
 	['at_skin_sniper_gold'] = { component = {`COMPONENT_MARKSMANRIFLE_VARMOD_LUXE`}, useTime = 2500 },
 
+	['water'] = {
+		thirst = 200000,
+		animDict = 'mp_player_intdrink',
+		anim = 'loop_bottle',
+		model = 'prop_ld_flow_bottle',
+		coords = { x = 0.03, y = 0.0, z = 0.02 },
+		rotation = { x = 0.0, y = -13.5, z = -1.5 },
+		useTime = 5000,
+		event = 'linden_inventory:water'
+	},
+
+	['cola'] = {
+		thirst = 200000,
+		animDict = 'mp_player_intdrink',
+		anim = 'loop_bottle',
+		model = 'prop_ecola_can',
+		coords = { x = 0.01, y = 0.0, z = 0.06 },
+		rotation = { x = 5.0, y = -1.5, z = -180.5 },
+		useTime = 2500,
+		event = 'linden_inventory:cola'
+	},
+
+	['coffee'] = {
+		thirst = 200000,
+		animDict = 'mp_player_intdrink',
+		anim = 'loop_bottle',
+		model = 'prop_ecola_can',
+		coords = { x = 0.01, y = 0.0, z = 0.06 },
+		rotation = { x = 5.0, y = -1.5, z = -180.5 },
+		useTime = 2500,
+		event = 'linden_inventory:cola'
+	},
+
+	['burger'] = {
+		hunger = 200000,
+		animDict = 'mp_player_inteat@burger',
+		anim = 'mp_player_int_eat_burger_fp',
+		model = 'prop_cs_burger_01',
+		coords = { x = 0.02, y = 0.022, z = -0.02 },
+		rotation = { x = 0.0, y = 5.0, z = 0.0 },
+		useTime = 5000,
+		event = 'linden_inventory:burger'
+	},
+
+	['sandwich'] = {
+		hunger = 200000,
+		animDict = 'mp_player_inteat@burger',
+		anim = 'mp_player_int_eat_burger_fp',
+		model = 'prop_cs_burger_01',
+		coords = { x = 0.02, y = 0.022, z = -0.02 },
+		rotation = { x = 0.0, y = 5.0, z = 0.0 },
+		useTime = 5000,
+		event = 'linden_inventory:burger'
+	},
+
+	['chip'] = {
+		hunger = 200000,
+		animDict = 'mp_player_inteat@burger',
+		anim = 'mp_player_int_eat_burger_fp',
+		model = 'prop_cs_burger_01',
+		coords = { x = 0.02, y = 0.022, z = -0.02 },
+		rotation = { x = 0.0, y = 5.0, z = 0.0 },
+		useTime = 5000,
+		event = 'linden_inventory:burger'
+	},
+
+	['cashew'] = {
+		hunger = 200000,
+		animDict = 'mp_player_inteat@burger',
+		anim = 'mp_player_int_eat_burger_fp',
+		model = 'prop_cs_burger_01',
+		coords = { x = 0.02, y = 0.022, z = -0.02 },
+		rotation = { x = 0.0, y = 5.0, z = 0.0 },
+		useTime = 5000,
+		event = 'linden_inventory:burger'
+	},
+
+	['panini'] = {
+		hunger = 200000,
+		animDict = 'mp_player_inteat@burger',
+		anim = 'mp_player_int_eat_burger_fp',
+		model = 'prop_cs_burger_01',
+		coords = { x = 0.02, y = 0.022, z = -0.02 },
+		rotation = { x = 0.0, y = 5.0, z = 0.0 },
+		useTime = 5000,
+		event = 'linden_inventory:burger'
+	},
+
+	['bread'] = {
+		hunger = 200000,
+		animDict = 'mp_player_inteat@burger',
+		anim = 'mp_player_int_eat_burger_fp',
+		model = 'prop_cs_burger_01',
+		coords = { x = 0.02, y = 0.022, z = -0.02 },
+		rotation = { x = 0.0, y = 5.0, z = 0.0 },
+		useTime = 5000,
+		event = 'linden_inventory:burger'
+	},
+
 	['bandage'] = {
 		animDict = 'missheistdockssetup1clipboard@idle_a',
 		anim = 'idle_a',
@@ -161,6 +260,24 @@ Config.ItemList = {
         	useTime = 30000,
         	consume = 1,
         	event = 'linden_inventory:light_armor'
+	},
+
+	['cigarette'] = {
+		disableMove = false,
+		animDict = '',
+		anim = '',
+		useTime = 15000,
+		consume = 1,
+		dofirst = 'linden_inventory:smokecigarette'
+	},
+
+	['joint'] = {
+		disableMove = false,
+		animDict = '',
+		anim = '',
+		useTime = 15000,
+		consume = 1,
+		dofirst = 'linden_inventory:smokeweed'
 	},
 
 }
