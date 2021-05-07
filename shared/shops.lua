@@ -47,8 +47,7 @@ Config.PoliceArmory = {
 		{ name = 'ammo-beanbag', price = 10, },
 		{ name = 'WEAPON_FLASHLIGHT', price = 500 },
 		{ name = 'armor', price = 1500 },
-		{ name = 'medikit', price = 200 },
-		{ name = 'bandage', price = 100 },
+		{ name = 'ifak', price = 1500 },
 		{ name = 'fixkit', price = 1000 },
 	}
 }

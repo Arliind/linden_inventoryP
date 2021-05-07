@@ -226,7 +226,7 @@ Config.ItemList = {
 		event = 'linden_inventory:bandage'
 	},
 
-	['IFAK'] = {
+	['ifak'] = {
 		animDict = 'missheistdockssetup1clipboard@idle_a',
 		anim = 'idle_a',
 		flags = 49,
@@ -277,8 +277,9 @@ Config.ItemList = {
 
 	['fixkit'] = {
 		disableMove = true,
-		animDict = '',
-        anim = '',
+		animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
+        anim = 'machinic_loop_mechandplayer',
+		flags = 49,
         useTime = 30000,
         consume = 1,
         event = 'linden_inventory:onFixkit'
