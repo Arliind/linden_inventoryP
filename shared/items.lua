@@ -226,6 +226,17 @@ Config.ItemList = {
 		event = 'linden_inventory:bandage'
 	},
 
+	['IFAK'] = {
+		animDict = 'missheistdockssetup1clipboard@idle_a',
+		anim = 'idle_a',
+		flags = 49,
+		model = 'prop_rolled_sock_02',
+		coords = { x = -0.14, y = 0.02, z = -0.08 },
+		rotation = { x = -50.0, y = -50.0, z = 0.0 },
+		useTime = 30000,
+		event = 'linden_inventory:ifak'
+	},
+
 	['lockpick'] = {
 		disableMove = true,
 		animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
@@ -248,6 +259,7 @@ Config.ItemList = {
 		disableMove = true,
 		animDict = 'clothingtie',
         	anim = 'try_tie_negative_a',
+			flags = 49,
         	useTime = 30000,
         	consume = 1,
         	event = 'linden_inventory:armor'
@@ -257,6 +269,7 @@ Config.ItemList = {
 		disableMove = true,
 		animDict = 'clothingtie',
         anim = 'try_tie_negative_a',
+		flags = 49,
         useTime = 30000,
         consume = 1,
         event = 'linden_inventory:light_armor'
