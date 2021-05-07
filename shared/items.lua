@@ -266,7 +266,7 @@ Config.ItemList = {
 		disableMove = false,
 		animDict = '',
 		anim = '',
-		useTime = 15000,
+		useTime = 7500,
 		consume = 1,
 		dofirst = 'linden_inventory:smokecigarette'
 	},
