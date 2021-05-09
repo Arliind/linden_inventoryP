@@ -383,7 +383,7 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 			currency = 'bank'
 			money = xPlayer.getAccount('bank').money
 			if not shopCurrency and money < data.price then
-				currency = ''
+				currency = 'money'
 				money = xPlayer.getAccount('money').money
 			end
 		else
@@ -406,18 +406,21 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 					if currency == 'bank' or currency:find('money') then cost = '$'..ESX.Math.GroupDigits(data.price)..' '..currency else cost = ESX.Math.GroupDigits(data.price)..'x '..currency end
 					if currency == 'bank' then
 						xPlayer.removeAccountMoney('bank', data.price)
-					else
+					elseif currency == 'money' then
 						xPlayer.removeAccountMoney('money', data.price)
+					elseif currency == 'black_money' then
+						xPlayer.removeAccountMoney('black_money', data.price)
+					else
+						removeInventoryItem(xPlayer, item.name, data.price)
 					end
 					addInventoryItem(xPlayer, data.name, count, data.metadata, false)
 					if Config.Logs then exports.linden_logs:log(xPlayer, false, ('bought %sx %s from %s for %s'):format(ESX.Math.GroupDigits(count), data.label, shopName, cost), 'items') end
 				else
 					local missing
-					if currency == 'bank' then
-					--if currency == 'bank' or item.name == 'money' then
-						missing = '$'..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..currency
+					if currency == 'bank' or currency == 'money' then
+						missing = ''..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '
 					elseif item.name == 'black_money' then
-						missing = '$'..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..string.lower(item.label)
+						missing = ''..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..string.lower(item.label)
 					else
 						missing = ''..ESX.Math.GroupDigits(ESX.Round(data.price - money))..' '..currency
 					end
@@ -892,14 +895,14 @@ ESX.RegisterServerCallback('linden_inventory:getItemCount', function(source, cb,
 	cb(xItem.count)
 end)
 
-ESX.RegisterServerCallback('linden_inventory:getPlayerData', function(source, cb)
+ESX.RegisterServerCallback('linden_inventory:getPlayerData',function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	if Inventories[xPlayer.source] then
 		cb(Inventories[xPlayer.source])
 	end
 end)
 
-ESX.RegisterServerCallback('linden_inventory:getOtherPlayerData', function(source, cb, target)
+ESX.RegisterServerCallback('linden_inventory:getOtherPlayerData',function(source, cb, target)
 	local xPlayer = ESX.GetPlayerFromId(target)
 	if Inventories[xPlayer.source] then
 		cb(Inventories[xPlayer.source])

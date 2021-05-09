@@ -31,5 +31,5 @@ Locales['en'] = {
 	['item_unauthorised'] = "You are not authorised to purchase this item",
 	['item_unlicensed'] = "You are not licensed to purchase this item",
 	['item_not_enough'] = "You do not have enough %s",
-	['cannot_afford'] = "You can not afford that ( missing $%s)",
+	['cannot_afford'] = "You can not afford that ( missing $%s )",
 }
