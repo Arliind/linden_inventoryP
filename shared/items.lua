@@ -294,7 +294,7 @@ Config.ItemList = {
 		dofirst = 'linden_inventory:smokecigarette'
 	},
 
-	['joint'] = {
+	['joint2g'] = {
 		disableMove = false,
 		animDict = '',
 		anim = '',
