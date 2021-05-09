@@ -49,7 +49,6 @@ RegisterNetEvent('linden_inventory:onFixkit')
 AddEventHandler('linden_inventory:onFixkit', function()
 local playerPed = PlayerPedId()
 	local coords = GetEntityCoords(playerPed)
-	local xPlayer = playerPed
 
 	if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 3.0) then
 		local vehicle
@@ -65,6 +64,7 @@ local playerPed = PlayerPedId()
 			Citizen.Wait(5000)
 			SetVehicleFixed(vehicle)
 			SetVehicleDeformationFixed(vehicle)
+			SetVehicleDirtLevel(vehicle, 0)
 			SetVehicleUndriveable(vehicle, false)
             TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Vehicle has been repaired', length = 5000})
 		else
