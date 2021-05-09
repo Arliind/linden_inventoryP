@@ -113,6 +113,7 @@ Config.BlackMarketItems = {
 	inventory = {
 		{ name = 'lockpick', price = 750 },
 		{ name = 'drill', price = 750 },
+		{ name = 'thermite', price = 750 },
 		{ name = 'hacking_laptop', price = 750 },
 		{ name = 'hackerdevice', price = 750 },
 		{ name = 'hqscale', price = 750 },
