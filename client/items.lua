@@ -70,6 +70,8 @@ AddEventHandler('linden_inventory:onFixkit', function()
 				--ClearPedTasksImmediately(playerPed)
                 TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Vehicle has been repaired', length = 5000})
 			end)
+		else
+			TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Can not repair an occupied vehicle', length = 5000})
 		end
 	else
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'No Vehicle Nearby', length = 5000})
