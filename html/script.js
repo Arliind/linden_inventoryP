@@ -5,6 +5,7 @@ var dropName = 'drop'
 var totalkg = 0
 var righttotalkg = 0
 var count = 0
+var dropSlots = 50
 var timer = null
 var showhotbar = null
 var HSN = []
@@ -314,8 +315,6 @@ HSN.SetupInventory = function(data) {
 	} else {
 		$('.rightside-name').html("Drop")
 		$('.inventory-main-rightside').data("invTier", "drop")
-		var dropSlots
-		if (data.rightinventory) {dropSlots = data.rightinventory.slots} else {dropSlots = data.slots}
 		rightinvtype = 'drop'
 		rightmaxWeight = (dropSlots*9000).toFixed(0)
 		righttotalkg = 0
@@ -338,7 +337,7 @@ function DragAndDrop() {
 		revertDuration: 0,
 		revert: "invalid",
 		cancel: ".itemdragclose",
-		containment: "parent",
+		containment: "body",
 		start: function(event, ui) {
 			IsDragging = true;
 			$(this).find("img").css("filter", "brightness(50%)");
@@ -735,10 +734,10 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 				}
 			}
 		} else {
-			HSN.InventoryMessage('cannot_perform', 2)
+			HSN.InventoryMessage('You can not perform this action', 2)
 		}
 	} else {
-		if (inv2 == 'Playerinv') { HSN.InventoryMessage('cannot_carry', 2) } else { HSN.InventoryMessage('cannot_carry_other', 2) }
+		if (inv2 == 'Playerinv') { HSN.InventoryMessage('You can not carry that much', 2) } else { HSN.InventoryMessage('Target inventory can not hold that much', 2) }
 	}
 	DragAndDrop()
 }

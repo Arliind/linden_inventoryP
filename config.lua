@@ -1,5 +1,4 @@
 Config = {}
-Config.Locale = 'en'
 
 -- Compare the version of this resource to the latest (default: every 60 minutes)
 Config.CheckVersion = true
