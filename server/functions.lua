@@ -112,7 +112,7 @@ end
 
 SyncAccounts = function(xPlayer, name)
 	local account = xPlayer.getAccount(name)
-	--account.money = getInventoryItem(xPlayer, name).count
+	account.money = getInventoryItem(xPlayer, name).count
 	xPlayer.setAccount(account)
 	xPlayer.triggerEvent('esx:setAccountMoney', account)
 end

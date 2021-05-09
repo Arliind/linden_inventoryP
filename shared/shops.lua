@@ -47,8 +47,7 @@ Config.PoliceArmory = {
 		{ name = 'ammo-beanbag', price = 10, },
 		{ name = 'WEAPON_FLASHLIGHT', price = 500 },
 		{ name = 'armor', price = 1500 },
-		{ name = 'medikit', price = 200 },
-		{ name = 'bandage', price = 100 },
+		{ name = 'ifak', price = 1500 },
 		{ name = 'fixkit', price = 1000 },
 	}
 }
@@ -148,9 +147,9 @@ Config.Shops = {
 --	{ coords = vector3(373.875, 325.896, 103.566), name = '24/7'},
 --	{ coords = vector3(-2544.092, 2316.184, 33.2), name = 'RON'},
 
-	{ type = Config.PoliceShop, coords = vector3(461.16, -982.11, 30.69), name = 'Vending Machine' }, -- MissionRow PD Vending Machine
-	{ type = Config.PoliceShop, coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriff\'s Kitchen' }, -- Sheriffs Office, upstairs Kitchen
-	{ type = Config.PoliceShop, coords = vector3(846.93, -1281.17, 28.23), name = 'Chef\'s Kitchen' }, -- State HQ Kitchen
+	{ type = Config.PoliceShop, job = 'police', coords = vector3(461.16, -982.11, 30.69), name = 'Vending Machine' }, -- MissionRow PD Vending Machine
+	{ type = Config.PoliceShop, job = 'police', coords = vector3(1855.12, 3693.57, 38.07), name = 'Sheriff\'s Kitchen' }, -- Sheriffs Office, upstairs Kitchen
+	{ type = Config.PoliceShop, job = 'police', coords = vector3(846.93, -1281.17, 28.23), name = 'Chef\'s Kitchen' }, -- State HQ Kitchen
 	{ type = Config.PoliceArmory, job = 'police', coords = vector3(482.47,-995.72, 30.69), name = 'MRPD Armory' }, -- MRPD Armoury
 	{ type = Config.PoliceSWATArmory, job = 'police', coords = vector3(486.96, -996.97, 30.69), name = 'MRPD SWAT Armory' }, -- MRPD SWAT Armoury
 	{ type = Config.PoliceArmory, job = 'police', coords = vector3(1858.84, 3689.93, 34.27), name = 'Sheriff Armory' }, -- Sheriff Armoury

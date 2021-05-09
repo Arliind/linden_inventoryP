@@ -73,6 +73,12 @@ AddEventHandler('linden_inventory:bandage', function()
 	inform('Bandage Used')
 end)
 
+AddEventHandler('linden_inventory:ifak', function()
+	local maxHealth = 200
+	SetEntityHealth(playerPed, maxHealth)
+	inform('IFAK Used')
+end)
+
 AddEventHandler('linden_inventory:duffel', function()
 -- Working on Duffel System ;D
 end)

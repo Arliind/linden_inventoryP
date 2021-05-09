@@ -163,17 +163,26 @@ AddEventHandler('onResourceStop', function(resourceName)
 	end
 end)
 
+RegisterNetEvent('linden_inventory:setPlayerInventory')
 AddEventHandler('linden_inventory:setPlayerInventory', function(xPlayer, data)
 	local invid = xPlayer.source
+	local PoliceWeight = 20000
+	if xPlayer.job.name == 'police' then
+		maxWeight = Config.PlayerWeight + PoliceWeight
+	else
+		maxWeight = Config.PlayerWeight
+	end
+
 	Inventories[invid] = {
 		id = xPlayer.source,
 		identifier = xPlayer.getIdentifier(),
 		type = 'Playerinv',
 		slots = Config.PlayerSlots,
-		maxWeight = Config.PlayerWeight,
+		maxWeight = maxWeight,
 		weight = 0,
 		inventory = {}
 	}
+
 	if data and next(data) then
 		for k, v in pairs(data) do
 			if type(v) == 'number' then break end
