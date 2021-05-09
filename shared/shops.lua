@@ -111,14 +111,14 @@ Config.BlackMarketWeapons = {
 Config.BlackMarketItems = {
 	name = 'View Stash',
 	inventory = {
-		{ name = 'lockpick', price = 750 },
-		{ name = 'drill', price = 750 },
-		{ name = 'thermite', price = 750 },
-		{ name = 'hacking_laptop', price = 750 },
-		{ name = 'hackerdevice', price = 750 },
-		{ name = 'hqscale', price = 750 },
-		{ name = 'drugitem', price = 750 },
-		{ name = 'drugbags', price = 750 },
+		{ name = 'lockpick', price = 1500 },
+		{ name = 'drill', price = 3000 },
+		{ name = 'thermite', price = 5750 },
+		{ name = 'hacking_laptop', price = 4800 },
+		{ name = 'hackerdevice', price = 4800 },
+		{ name = 'hqscale', price = 7000 },
+		{ name = 'drugitem', price = 35000 },
+		{ name = 'drugbags', price = 1000 },
 	}
 }
 
