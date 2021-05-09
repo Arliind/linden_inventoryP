@@ -936,10 +936,10 @@ AddEventHandler('linden_inventory:useItem',function(item)
 						exports['mythic_progbar']:Progress({
 							name = 'useitem',
 							duration = data.useTime,
-							label = 'Using '..xItem.label,
+							label = data.actionType,
 							useWhileDead = false,
 							canCancel = false,
-							controlDisables = { disableMovement = data.disableMove, disableCarMovement = false, disableMouse = false, disableCombat = true },
+							controlDisables = { disableMovement = data.disableMove, disableCarMovement = data.disableCarMovement or false, disableMouse = data.disableMouse or false, disableCombat = true },
 							animation = { animDict = data.animDict or 'pickup_object', anim = data.anim or 'putdown_low', flags = data.flags or 48, bone = data.bone },
 							prop = { model = data.model, coords = data.coords, rotation = data.rotation }
 						})

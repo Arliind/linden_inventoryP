@@ -2,38 +2,47 @@ local _source = source
 
 AddEventHandler('linden_inventory:burger', function()
     TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:panini', function()
     TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:cashew', function()
     TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:chip', function()
     TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:sandwich', function()
     TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:bread', function()
     TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:water', function()
     TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:cola', function()
     TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:coffee', function()
     TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 2500})
 end)
 
 RegisterNetEvent('linden_inventory:onFixkit')
@@ -51,17 +60,19 @@ AddEventHandler('linden_inventory:onFixkit', function()
 		end
 
 		if DoesEntityExist(vehicle) then
-			TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
+			--TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
 			Citizen.CreateThread(function()
-                --exports['progressBars']:startUI(30000, "Repairing Vehicle")
-				--Citizen.Wait(30000)
+				exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 30000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49,}})
+				Citizen.Wait(30000)
 				SetVehicleFixed(vehicle)
 				SetVehicleDeformationFixed(vehicle)
 				SetVehicleUndriveable(vehicle, false)
-				ClearPedTasksImmediately(playerPed)
-                exports['t-notify']:Alert({style = 'success', message = 'Vehicle has been repaired'})
+				--ClearPedTasksImmediately(playerPed)
+                TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Vehicle has been repaired', length = 5000})
 			end)
 		end
+	else
+		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'No Vehicle Nearby', length = 5000})
 	end
 end)
 
@@ -70,13 +81,13 @@ AddEventHandler('linden_inventory:bandage', function()
 	local health = GetEntityHealth(playerPed)
 	local newHealth = math.min(maxHealth, math.floor(health + maxHealth / 16))
 	SetEntityHealth(playerPed, newHealth)
-	inform('Bandage Used')
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Bandage Used', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:ifak', function()
 	local maxHealth = 200
 	SetEntityHealth(playerPed, maxHealth)
-	inform('IFAK Used')
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'IFAK Used', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:duffel', function()
@@ -87,27 +98,27 @@ RegisterNetEvent('linden_inventory:armor')
 AddEventHandler('linden_inventory:armor', function()
     local playerPed = GetPlayerPed(-1)
     SetPedArmour(playerPed, 100)
-    inform('Armor Equiped')
+    TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Armor Equiped', length = 2500})
 end)
 
 RegisterNetEvent('linden_inventory:light_armor')
 AddEventHandler('linden_inventory:light_armor', function()
     local playerPed = GetPlayerPed(-1)
     SetPedArmour(playerPed, 30)
-    inform('Light Armor Equiped')
+    TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Light Armor Equiped', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:smokecigarette', function()
 	ExecuteCommand('e smoke')
 	Citizen.Wait(7500)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 2)
-	inform('Stress Relieved')
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Stress Relieved', length = 2500})
 end)
 
 AddEventHandler('linden_inventory:smokeweed', function()
 	ExecuteCommand('e smokeweed')
 	Citizen.Wait(15000)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 6)
-	inform('Stress Relieved')
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Stress Relieved', length = 2500})
 end)
 

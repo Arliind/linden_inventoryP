@@ -121,10 +121,12 @@ Config.ItemList = {
 		animDict = 'mp_player_intdrink',
 		anim = 'loop_bottle',
 		model = 'prop_ld_flow_bottle',
+		flags = 49,
 		coords = { x = 0.03, y = 0.0, z = 0.02 },
 		rotation = { x = 0.0, y = -13.5, z = -1.5 },
 		useTime = 5000,
-		event = 'linden_inventory:water'
+		event = 'linden_inventory:water',
+		actionType = 'Drinking Water'
 	},
 
 	['cola'] = {
@@ -132,21 +134,25 @@ Config.ItemList = {
 		animDict = 'mp_player_intdrink',
 		anim = 'loop_bottle',
 		model = 'prop_ecola_can',
+		flags = 49,
 		coords = { x = 0.01, y = 0.0, z = 0.06 },
 		rotation = { x = 5.0, y = -1.5, z = -180.5 },
-		useTime = 2500,
-		event = 'linden_inventory:cola'
+		useTime = 5000,
+		event = 'linden_inventory:cola',
+		actionType = 'Drinking Cola'
 	},
 
 	['coffee'] = {
 		thirst = 200000,
 		animDict = 'mp_player_intdrink',
 		anim = 'loop_bottle',
-		model = 'prop_ecola_can',
+		model = 'p_ing_coffeecup_01',
+		flags = 49,
 		coords = { x = 0.01, y = 0.0, z = 0.06 },
 		rotation = { x = 5.0, y = -1.5, z = -180.5 },
-		useTime = 2500,
-		event = 'linden_inventory:cola'
+		useTime = 5000,
+		event = 'linden_inventory:coffee',
+		actionType = 'Drinking Coffee'
 	},
 
 	['burger'] = {
@@ -154,76 +160,90 @@ Config.ItemList = {
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
 		model = 'prop_cs_burger_01',
+		flags = 49,
 		coords = { x = 0.02, y = 0.022, z = -0.02 },
 		rotation = { x = 0.0, y = 5.0, z = 0.0 },
 		useTime = 5000,
-		event = 'linden_inventory:burger'
+		event = 'linden_inventory:burger',
+		actionType = 'Eating Burger'
 	},
 
 	['sandwich'] = {
 		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
-		model = 'prop_cs_burger_01',
+		model = 'prop_sandwich_01',
+		flags = 49,
 		coords = { x = 0.02, y = 0.022, z = -0.02 },
 		rotation = { x = 0.0, y = 5.0, z = 0.0 },
 		useTime = 5000,
-		event = 'linden_inventory:burger'
+		event = 'linden_inventory:sandwich',
+		actionType = 'Eating Sandwich'
 	},
 
 	['chip'] = {
 		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
-		model = 'prop_cs_burger_01',
+		model = 'prop_cs_crisps_01',
+		flags = 49,
 		coords = { x = 0.02, y = 0.022, z = -0.02 },
 		rotation = { x = 0.0, y = 5.0, z = 0.0 },
 		useTime = 5000,
-		event = 'linden_inventory:burger'
+		event = 'linden_inventory:chip',
+		actionType = 'Eating Chips'
 	},
 
 	['cashew'] = {
 		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
-		model = 'prop_cs_burger_01',
+		model = 'prop_ld_snack_01',
+		flags = 49,
 		coords = { x = 0.02, y = 0.022, z = -0.02 },
 		rotation = { x = 0.0, y = 5.0, z = 0.0 },
 		useTime = 5000,
-		event = 'linden_inventory:burger'
+		event = 'linden_inventory:cashew',
+		actionType = 'Eating Cashew'
 	},
 
 	['panini'] = {
 		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
-		model = 'prop_cs_burger_01',
+		model = 'prop_food_bs_burger2',
+		flags = 49,
 		coords = { x = 0.02, y = 0.022, z = -0.02 },
 		rotation = { x = 0.0, y = 5.0, z = 0.0 },
 		useTime = 5000,
-		event = 'linden_inventory:burger'
+		event = 'linden_inventory:panini',
+		actionType = 'Eating Panini'
 	},
 
 	['bread'] = {
 		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
-		model = 'prop_cs_burger_01',
+		model = 'v_ret_247_bread1',
+		flags = 49,
 		coords = { x = 0.02, y = 0.022, z = -0.02 },
 		rotation = { x = 0.0, y = 5.0, z = 0.0 },
 		useTime = 5000,
-		event = 'linden_inventory:burger'
+		event = 'linden_inventory:bread',
+		actionType = 'Eating Bread'
 	},
 
 	['bandage'] = {
 		animDict = 'missheistdockssetup1clipboard@idle_a',
 		anim = 'idle_a',
 		flags = 49,
-		model = 'prop_rolled_sock_02',
+		model = '',
 		coords = { x = -0.14, y = 0.02, z = -0.08 },
 		rotation = { x = -50.0, y = -50.0, z = 0.0 },
 		useTime = 2500,
-		event = 'linden_inventory:bandage'
+		event = 'linden_inventory:bandage',
+		actionType = 'Applying Bandage',
+		disableCarMovement - true
 	},
 
 	['ifak'] = {
@@ -234,7 +254,9 @@ Config.ItemList = {
 		coords = { x = -0.14, y = 0.02, z = -0.08 },
 		rotation = { x = -50.0, y = -50.0, z = 0.0 },
 		useTime = 30000,
-		event = 'linden_inventory:ifak'
+		event = 'linden_inventory:ifak',
+		actionType = 'Applying IFAK',
+		disableCarMovement = true
 	},
 
 	['lockpick'] = {
@@ -243,7 +265,8 @@ Config.ItemList = {
 		anim = 'machinic_loop_mechandplayer',
 		useTime = 2000,
 		consume = 0,
-		dofirst = 'esx_lockpick:onUse'
+		dofirst = 'esx_lockpick:onUse',
+		actionType = 'Lockpicking'
 	},
 
 	['duffel'] = {
@@ -252,7 +275,8 @@ Config.ItemList = {
 		anim = 'ex03_dingy_search_case_b_michael',
 		useTime = 5000,
 		consume = 0,
-		event = 'linden_inventory:duffel'
+		event = 'linden_inventory:duffel',
+		actionType = 'Opening Duffel Bag'
 	},
 
 	['armor'] = {
@@ -262,7 +286,9 @@ Config.ItemList = {
 			flags = 49,
         	useTime = 30000,
         	consume = 1,
-        	event = 'linden_inventory:armor'
+        	event = 'linden_inventory:armor',
+			actionType = 'Equipping Heavy Armor',
+			disableCarMovement - true
 	},
 
 	['light_armor'] = {
@@ -272,17 +298,18 @@ Config.ItemList = {
 		flags = 49,
         useTime = 30000,
         consume = 1,
-        event = 'linden_inventory:light_armor'
+        event = 'linden_inventory:light_armor',
+		actionType = 'Equipping Light Armor',
+		disableCarMovement - true
 	},
 
 	['fixkit'] = {
-		disableMove = true,
-		animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
+		--[[animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
         anim = 'machinic_loop_mechandplayer',
 		flags = 49,
-        useTime = 30000,
+        useTime = 30000,]]
         consume = 1,
-        event = 'linden_inventory:onFixkit'
+        dofirst = 'linden_inventory:onFixkit'
 	},
 
 	['cigarette'] = {
@@ -291,7 +318,8 @@ Config.ItemList = {
 		anim = '',
 		useTime = 7500,
 		consume = 1,
-		dofirst = 'linden_inventory:smokecigarette'
+		dofirst = 'linden_inventory:smokecigarette',
+		actionType = 'Smoking Cigarette'
 	},
 
 	['joint2g'] = {
@@ -300,7 +328,8 @@ Config.ItemList = {
 		anim = '',
 		useTime = 15000,
 		consume = 1,
-		dofirst = 'linden_inventory:smokeweed'
+		dofirst = 'linden_inventory:smokeweed',
+		actionType = 'Smoking Weed'
 	},
 
 }
