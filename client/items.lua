@@ -47,8 +47,10 @@ end)
 
 RegisterNetEvent('linden_inventory:onFixkit')
 AddEventHandler('linden_inventory:onFixkit', function()
-local playerPed = PlayerPedId()
+	local playerPed = PlayerPedId()
 	local coords = GetEntityCoords(playerPed)
+	local player = GetPlayerPed(-1)
+	local item = GetItemName("fixkit")
 
 	if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 3.0) then
 		local vehicle
@@ -60,8 +62,8 @@ local playerPed = PlayerPedId()
 		end
 
 		if DoesEntityExist(vehicle) then
-			exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 5000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49,}})
-			Citizen.Wait(5000)
+			exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 30000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49,}})
+			Citizen.Wait(30000)
 			SetVehicleFixed(vehicle)
 			SetVehicleDeformationFixed(vehicle)
 			SetVehicleDirtLevel(vehicle, 0)
@@ -72,6 +74,7 @@ local playerPed = PlayerPedId()
 		end
 	else
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'No vehicle nearby', length = 5000})
+		GiveItemtoPed(player, item, 1, false)
 	end
 end)
 
