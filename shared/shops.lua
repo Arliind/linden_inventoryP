@@ -109,7 +109,7 @@ Config.BlackMarketWeapons = {
 }
 
 Config.BlackMarketItems = {
-	name = 'View Stash',
+	name = 'Blackmarket',
 	inventory = {
 		{ name = 'lockpick', price = 2000 },
 		{ name = 'drill', price = 7000 },
@@ -175,5 +175,5 @@ Config.Shops = {
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(950.8, -968.97, 39.51), name = 'Psst! Under The Desk' }, -- City Garage (Postal 8198), under the front desk
 	{ type = Config.BlackMarketWeapons, job = 'police', coords = vector3(1240.49, -2898.14, 32.21) }, -- BlackMarketWeapons by the docks
-	{ type = Config.BlackMarketItems, coords = vector3(1657.07, 4.48, 166.12), currency = 'black_money' }, -- BlackMarketItems under the DAM
+	{ type = Config.BlackMarketItems, coords = vector3(1147.53,-1640.41, 36.6), currency = 'black_money' }, -- BlackMarketItems under the DAM
 }
