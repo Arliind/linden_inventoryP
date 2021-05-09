@@ -417,7 +417,7 @@ AddEventHandler('linden_inventory:buyItem', function(info)
 					--if currency == 'bank' or item.name == 'money' then
 						missing = '$'..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..currency
 					elseif item.name == 'black_money' then
-						missing = '$'..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..string.lower(item.label)
+						missing = ''..ESX.Math.GroupDigits(ESX.Round(data.price - money)).. ' '..string.lower(item.label)
 					else
 						missing = ''..ESX.Math.GroupDigits(ESX.Round(data.price - money))..' '..currency
 					end
