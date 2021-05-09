@@ -1002,3 +1002,5 @@ Citizen.CreateThread(function()
       TaskPlayAnim(ped,"mini@strip_club@idles@bouncer@base","base", 8.0, 0.0, -1, 1, 0, 0, 0, 0)
     end
 end)
+
+
