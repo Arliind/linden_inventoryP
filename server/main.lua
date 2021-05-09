@@ -892,14 +892,14 @@ ESX.RegisterServerCallback('linden_inventory:getItemCount', function(source, cb,
 	cb(xItem.count)
 end)
 
-ESX.RegisterServerCallback('linden_inventory:getPlayerData',function(source, cb)
+ESX.RegisterServerCallback('linden_inventory:getPlayerData', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	if Inventories[xPlayer.source] then
 		cb(Inventories[xPlayer.source])
 	end
 end)
 
-ESX.RegisterServerCallback('linden_inventory:getOtherPlayerData',function(source, cb, target)
+ESX.RegisterServerCallback('linden_inventory:getOtherPlayerData', function(source, cb, target)
 	local xPlayer = ESX.GetPlayerFromId(target)
 	if Inventories[xPlayer.source] then
 		cb(Inventories[xPlayer.source])
