@@ -243,7 +243,7 @@ Config.ItemList = {
 		useTime = 2500,
 		event = 'linden_inventory:bandage',
 		actionType = 'Applying Bandage',
-		disableCarMovement - true
+		disableCarMovement = true
 	},
 
 	['ifak'] = {
@@ -288,7 +288,7 @@ Config.ItemList = {
         	consume = 1,
         	event = 'linden_inventory:armor',
 			actionType = 'Equipping Heavy Armor',
-			disableCarMovement - true
+			disableCarMovement = true
 	},
 
 	['light_armor'] = {
@@ -300,7 +300,7 @@ Config.ItemList = {
         consume = 1,
         event = 'linden_inventory:light_armor',
 		actionType = 'Equipping Light Armor',
-		disableCarMovement - true
+		disableCarMovement = true
 	},
 
 	['fixkit'] = {
@@ -308,8 +308,8 @@ Config.ItemList = {
         anim = 'machinic_loop_mechandplayer',
 		flags = 49,
         useTime = 30000,]]
-        consume = 1,
-        dofirst = 'linden_inventory:onFixkit'
+        consume = 0,
+        event = 'linden_inventory:onFixkit'
 	},
 
 	['cigarette'] = {
