@@ -46,6 +46,7 @@ Config.PoliceArmory = {
 		{ name = 'ammo-rifle', price = 30, },
 		{ name = 'ammo-beanbag', price = 10, },
 		{ name = 'WEAPON_FLASHLIGHT', price = 500 },
+		{ name = 'uvlight', price = 5000 },
 		{ name = 'armor', price = 1500 },
 		{ name = 'ifak', price = 1500 },
 		{ name = 'fixkit', price = 1000 },
@@ -112,6 +113,11 @@ Config.BlackMarketItems = {
 	inventory = {
 		{ name = 'lockpick', price = 750 },
 		{ name = 'drill', price = 750 },
+		{ name = 'hacker_laptop', price = 750 },
+		{ name = 'hackingdevice', price = 750 },
+		{ name = 'hqscale', price = 750 },
+		{ name = 'drugitem', price = 750 },
+		{ name = 'drugbags', price = 750 },
 	}
 }
 
@@ -168,5 +174,5 @@ Config.Shops = {
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(950.8, -968.97, 39.51), name = 'Psst! Under The Desk' }, -- City Garage (Postal 8198), under the front desk
 	{ type = Config.BlackMarketWeapons, job = 'police', coords = vector3(1240.49, -2898.14, 32.21) }, -- BlackMarketWeapons by the docks
-	{ type = Config.BlackMarketItems, coords = vector3(1656.73, 4.58, 166.12) }, -- BlackMarketItems under the DAM
+	{ type = Config.BlackMarketItems, coords = vector3(1656.73, 4.58, 166.12), currency = 'black_money' }, -- BlackMarketItems under the DAM
 }
