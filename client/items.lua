@@ -60,7 +60,7 @@ AddEventHandler('linden_inventory:onFixkit', function()
 		end
 
 		if DoesEntityExist(vehicle) then
-			exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 30000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49,}})
+			exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 30000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49 }})
 			Citizen.Wait(30000)
 			SetVehicleFixed(vehicle)
 			SetVehicleDeformationFixed(vehicle)
@@ -72,7 +72,6 @@ AddEventHandler('linden_inventory:onFixkit', function()
 		end
 	else
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'No vehicle nearby', length = 5000})
-		GiveItemtoPed(player, item, 1, false)
 	end
 end)
 
