@@ -49,8 +49,6 @@ RegisterNetEvent('linden_inventory:onFixkit')
 AddEventHandler('linden_inventory:onFixkit', function()
 	local playerPed = PlayerPedId()
 	local coords = GetEntityCoords(playerPed)
-	local player = GetPlayerPed(-1)
-	local item = GetItemName("fixkit")
 
 	if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 3.0) then
 		local vehicle
