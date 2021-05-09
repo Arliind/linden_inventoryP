@@ -103,14 +103,18 @@ Config.PoliceShop = {
 Config.BlackMarketWeapons = {
 	name = 'If you find this then fuck off',
 	inventory = {
-		{ name = 'WEAPON_ASSAULTSMG', price = 1000000000, metadata = { registered = false, description = 'Serial Number: -/----/-/-/----/-/-', components = { 'flashlight', 'scope', 'clip_extended' } } },
+		{ name = 'WEAPON_COMBATPDW', price = 1000000000, metadata = { registered = false, description = 'Untraceable'} },
 	}
 }
 
 Config.BlackMarketItems = {
 	name = 'View Stash',
 	inventory = {
-		{ name = 'WEAPON_ASSAULTSMG', price = 1000000000, metadata = { registered = false, description = 'Serial Number: -/----/-/-/----/-/-', components = { 'flashlight', 'scope', 'clip_extended' } } },
+		{ name = 'lockpick', price = 750 } },
+		{ name = 'drill', price = 750 } },
+		{ name = 'lockpick', price = 750 } },
+		{ name = 'lockpick', price = 750 } },
+		{ name = 'lockpick', price = 750 } },
 	}
 }
 
