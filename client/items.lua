@@ -101,7 +101,7 @@ AddEventHandler('linden_inventory:heavyarmor', function()
 	if pedArmor >= 100 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 100% armor', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'heavyarmor', duration = 25000, label = 'Equipping Heavy Armor', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'heavyarmor', duration = 25000, label = 'Equipping Heavy Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprint = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(25000)
 		SetPedArmour(playerPed, 100)
 		TriggerServerEvent('linden_inventory:UseHeavyArmorNow')
@@ -116,7 +116,7 @@ AddEventHandler('linden_inventory:lightarmor', function()
 	if pedArmor >= 25 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 25% armor', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'lightarmor', duration = 15000, label = 'Equipping Light Armor', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'lightarmor', duration = 15000, label = 'Equipping Light Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprint = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(15000)
 		SetPedArmour(playerPed, 25)
 		TriggerServerEvent('linden_inventory:UseLightArmorNow')
