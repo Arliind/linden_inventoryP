@@ -939,9 +939,9 @@ AddEventHandler('linden_inventory:useItem',function(item)
 							label = data.actionType,
 							useWhileDead = false,
 							canCancel = false,
-							controlDisables = { disableMovement = data.disableMove, disableCarMovement = data.disableCarMovement or false, disableMouse = data.disableMouse or false, disableCombat = true },
-							animation = { animDict = data.animDict or 'pickup_object', anim = data.anim or 'putdown_low', flags = data.flags or 48, bone = data.bone },
-							prop = { model = data.model, coords = data.coords, rotation = data.rotation }
+							controlDisables = { disableMovement = data.disableMove or false, disableCarMovement = data.disableCarMovement or false, disableMouse = data.disableMouse or false, disableCombat = data.disableCombat or true },
+							animation = { animDict = data.animDict or nil, anim = data.anim or nil, flags = data.flags or 0, bone = data.bone or nil },
+							prop = { model = data.model or nil, coords = data.coords or { x = 0.0, y = 0.0, z = 0.0 } or , rotation = data.rotation or { x = 0.0, y = 0.0, z = 0.0 } }
 						})
 						Citizen.Wait(data.useTime)
 					end
