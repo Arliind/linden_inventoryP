@@ -57,7 +57,7 @@ Config.PoliceSWATArmory = {
 	name = 'SWAT Armory',
 	inventory = {
 		{ name = 'WEAPON_ASSAULTSMG', price = 20000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'clip_extended' } } },
-		{ name = 'WEAPON_SPECIALCARBINE', price = 35000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope', 'clip_extended' } } },
+		{ name = 'WEAPON_SPECIALCARBINE', price = 35000, metadata = { registered = true, serial = 'POL', components = { 'flashlight', 'scope' } } },
 		{ name = 'WEAPON_BZGAS', price = 3000, metadata = { registered = true, serial = 'POL' } },
 		{ name = 'ammo-rifle', price = 30, },
 		{ name = 'armor', price = 1500 },
