@@ -1077,3 +1077,9 @@ end, true)]]
 		setMaxWeight(xPlayer, tonumber(args[2]))
 	end
 end, true)]]
+
+RegisterServerEvent('linden_inventory:UseRepairKitNow')
+AddEventHandler('linden_inventory:UseRepairKitNow', function()
+local xPlayer  = ESX.GetPlayerFromId(source)
+xPlayer.removeInventoryItem('fixkit', 1)
+end)

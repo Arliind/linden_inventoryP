@@ -308,7 +308,7 @@ Config.ItemList = {
         anim = 'machinic_loop_mechandplayer',
 		flags = 49,
         useTime = 30000,]]
-        consume = 1,
+        consume = 0,
         event = 'linden_inventory:onFixkit'
 	},
 
