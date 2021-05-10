@@ -1029,15 +1029,19 @@ exports('OpenStash', OpenStash)
 
 ESX.RegisterCommand('evidence', 'user', function(xPlayer, args, showError)
 	if xPlayer.job.name == 'police' then
-		local stash = {name = 'evidence-'..args.evidence, slots = Config.PlayerSlots, job = 'police', coords = Config.PoliceEvidence1}
-		OpenStash(xPlayer, stash)
-	end
-	if xPlayer.job.name == 'police' then
-		local stash = {name = 'evidence-'..args.evidence, slots = Config.PlayerSlots, job = 'police', coords = Config.PoliceEvidence2}
-		OpenStash(xPlayer, stash)
-	end
+    	local evidence = Config.PoliceEvidence1
+    	local coords = xPlayer.getCoords()
+    	if #(Config.PoliceEvidence1 - coords) > 15 then
+            if #(Config.PoliceEvidence2 - coords) > 15 then
+                return
+            else evidence = Config.PoliceEvidence2 end
+        end
+
+        local stash = {name = 'evidence-'..args.evidence, slots = Config.PlayerSlots, job = 'police', coords = evidence}
+        OpenStash(xPlayer, stash)
+    end
 end, true, {help = 'open police evidence', validate = true, arguments = {
-	{name = 'evidence', help = 'number', type = 'number'}
+    {name = 'evidence', help = 'number', type = 'number'}
 }})
 
 ESX.RegisterCommand('clearevidence', 'user', function(xPlayer, args, showError)
