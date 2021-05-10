@@ -119,7 +119,6 @@ Config.ItemList = {
 
 	-- Hunger Decreasing Items
 	['burger'] = {
-		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
 		model = 'prop_cs_burger_01',
@@ -132,7 +131,6 @@ Config.ItemList = {
 	},
 
 	['sandwich'] = {
-		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
 		model = 'prop_sandwich_01',
@@ -145,7 +143,6 @@ Config.ItemList = {
 	},
 
 	['chip'] = {
-		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
 		model = 'prop_cs_crisps_01',
@@ -158,7 +155,6 @@ Config.ItemList = {
 	},
 
 	['cashew'] = {
-		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
 		model = 'prop_ld_snack_01',
@@ -171,7 +167,6 @@ Config.ItemList = {
 	},
 
 	['panini'] = {
-		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
 		model = 'prop_food_bs_burger2',
@@ -184,7 +179,6 @@ Config.ItemList = {
 	},
 
 	['bread'] = {
-		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
 		anim = 'mp_player_int_eat_burger_fp',
 		model = 'v_ret_247_bread1',
@@ -199,7 +193,6 @@ Config.ItemList = {
 	
 -- Thirst Decreasing Items
 	['water'] = {
-		thirst = 200000,
 		animDict = 'mp_player_intdrink',
 		anim = 'loop_bottle',
 		model = 'prop_ld_flow_bottle',
@@ -212,7 +205,6 @@ Config.ItemList = {
 	},
 
 	['cola'] = {
-		thirst = 200000,
 		animDict = 'mp_player_intdrink',
 		anim = 'loop_bottle',
 		model = 'prop_ecola_can',
@@ -225,7 +217,6 @@ Config.ItemList = {
 	},
 
 	['coffee'] = {
-		thirst = 200000,
 		animDict = 'mp_player_intdrink',
 		anim = 'loop_bottle',
 		model = 'p_ing_coffeecup_01',
@@ -240,9 +231,6 @@ Config.ItemList = {
 
 -- Stress Relieving Items
 	['cigarette'] = {
-		disableMove = false,
-		animDict = '',
-		anim = '',
 		useTime = 7500,
 		consume = 1,
 		dofirst = 'linden_inventory:smokecigarette',
@@ -250,9 +238,6 @@ Config.ItemList = {
 	},
 
 	['joint2g'] = {
-		disableMove = false,
-		animDict = '',
-		anim = '',
 		useTime = 15000,
 		consume = 1,
 		dofirst = 'linden_inventory:smokeweed',
