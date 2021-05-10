@@ -88,15 +88,15 @@ Config.Medicine = {
 Config.PoliceShop = {
 	name = 'Shop',
 	inventory = {
-		{ name = 'burger', price = 100 },
-		{ name = 'sandwich', price = 100 },
+		{ name = 'burger', price = 170 },
+		{ name = 'sandwich', price = 130 },
 		{ name = 'chip', price = 100 },
-		{ name = 'cashew', price = 100 },
-		{ name = 'panini', price = 100 },
+		{ name = 'cashew', price = 80 },
+		{ name = 'panini', price = 250 },
 		{ name = 'dogfood', price = 100 },
-		{ name = 'water', price = 100 },
-		{ name = 'cola', price = 100 },
-		{ name = 'coffee', price = 100 },
+		{ name = 'water', price = 160 },
+		{ name = 'cola', price = 120 },
+		{ name = 'coffee', price = 80 },
 		{ name = 'cigarette', price = 100 },
 	}
 }
