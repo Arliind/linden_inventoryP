@@ -280,34 +280,16 @@ Config.ItemList = {
 	},
 
 	['armor'] = {
-		disableMove = true,
-		animDict = 'clothingtie',
-        	anim = 'try_tie_negative_a',
-			flags = 49,
-        	useTime = 30000,
-        	consume = 1,
-        	event = 'linden_inventory:armor',
-			actionType = 'Equipping Heavy Armor',
-			disableCarMovement = true
+        consume = 0,
+        event = 'linden_inventory:heavyarmor'
 	},
 
 	['light_armor'] = {
-		disableMove = true,
-		animDict = 'clothingtie',
-        anim = 'try_tie_negative_a',
-		flags = 49,
-        useTime = 30000,
-        consume = 1,
-        event = 'linden_inventory:light_armor',
-		actionType = 'Equipping Light Armor',
-		disableCarMovement = true
-	},
+		consume = 0,
+		event = 'linden_inventory:lightarmor'
+},
 
 	['fixkit'] = {
-		--[[animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
-        anim = 'machinic_loop_mechandplayer',
-		flags = 49,
-        useTime = 30000,]]
         consume = 0,
         event = 'linden_inventory:onFixkit'
 	},

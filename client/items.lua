@@ -62,7 +62,7 @@ AddEventHandler('linden_inventory:onFixkit', function()
 		if DoesEntityExist(vehicle) then
 			exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 30000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49 }})
 			Citizen.Wait(30000)
-			TriggerServerEvent('linden_inventory:UseRepairKitNow')
+			TriggerServerEvent('linden_inventory:UseFixKitNow')
 			SetVehicleFixed(vehicle)
 			SetVehicleDeformationFixed(vehicle)
 			SetVehicleDirtLevel(vehicle, 0)
@@ -94,18 +94,34 @@ AddEventHandler('linden_inventory:duffel', function()
 -- Working on Duffel System ;D
 end)
 
-RegisterNetEvent('linden_inventory:armor')
-AddEventHandler('linden_inventory:armor', function()
+RegisterNetEvent('linden_inventory:heavyarmor')
+AddEventHandler('linden_inventory:heavyarmor', function()
     local playerPed = GetPlayerPed(-1)
-    SetPedArmour(playerPed, 100)
-    TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Armor Equiped', length = 5000})
+	local pedArmor = GetPedArmour(playerPed)
+	if pedArmor >= 100 then
+		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 100% armor', length = 5000})
+	else
+		exports['mythic_progbar']:Progress({name = 'heavyarmor', duration = 25000, label = 'Equipping Heavy Armor', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+    	Citizen.Wait(25000)
+		SetPedArmour(playerPed, 100)
+		TriggerServerEvent('linden_inventory:UseHeavyArmorNow')
+    	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Heavy Armor Equiped', length = 5000})
+	end
 end)
 
-RegisterNetEvent('linden_inventory:light_armor')
-AddEventHandler('linden_inventory:light_armor', function()
+RegisterNetEvent('linden_inventory:lightarmor')
+AddEventHandler('linden_inventory:lightarmor', function()
     local playerPed = GetPlayerPed(-1)
-    SetPedArmour(playerPed, 30)
-    TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Light Armor Equiped', length = 5000})
+	local pedArmor = GetPedArmour(playerPed)
+	if pedArmor >= 25 then
+		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 25% armor', length = 5000})
+	else
+		exports['mythic_progbar']:Progress({name = 'lightarmor', duration = 15000, label = 'Equipping Light Armor', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+    	Citizen.Wait(15000)
+		SetPedArmour(playerPed, 25)
+		TriggerServerEvent('linden_inventory:UseLightArmorNow')
+    	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Light Armor Equiped', length = 5000})
+	end
 end)
 
 AddEventHandler('linden_inventory:smokecigarette', function()

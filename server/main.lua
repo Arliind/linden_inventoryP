@@ -1078,8 +1078,20 @@ end, true)]]
 	end
 end, true)]]
 
-RegisterServerEvent('linden_inventory:UseRepairKitNow')
-AddEventHandler('linden_inventory:UseRepairKitNow', function()
+RegisterServerEvent('linden_inventory:UseFixKitNow')
+AddEventHandler('linden_inventory:UseFixKitNow', function()
 local xPlayer  = ESX.GetPlayerFromId(source)
 xPlayer.removeInventoryItem('fixkit', 1)
+end)
+
+RegisterServerEvent('linden_inventory:UseHeavyArmorNow')
+AddEventHandler('linden_inventory:UseHeavyArmorNow', function()
+local xPlayer  = ESX.GetPlayerFromId(source)
+xPlayer.removeInventoryItem('armor', 1)
+end)
+
+RegisterServerEvent('linden_inventory:UseLightArmorNow')
+AddEventHandler('linden_inventory:UseLightArmorNow', function()
+local xPlayer  = ESX.GetPlayerFromId(source)
+xPlayer.removeInventoryItem('light_armor', 1)
 end)
