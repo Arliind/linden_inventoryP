@@ -52,7 +52,7 @@ end)
 
 -- Stress Relieving Items
 AddEventHandler('linden_inventory:smokecigarette', function()
-	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 7500, label = 'Smoking Cigarette', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = '', anim = ''}})
+	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 7500, label = 'Smoking Cigarette', useWhileDead = false, canCancel = false, controlDisables = { disableCancels = true, disableMovement = false, disableCarMovement = false, disableCombat = true }})
 	ExecuteCommand('e smoke')
 	Citizen.Wait(7500)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 2)
@@ -60,7 +60,7 @@ AddEventHandler('linden_inventory:smokecigarette', function()
 end)
 
 AddEventHandler('linden_inventory:smokejoint2g', function()
-	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 15000, label = 'Smoking Joint', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = '', anim = '' }})
+	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 15000, label = 'Smoking Joint', useWhileDead = false, canCancel = false, controlDisables = { disableCancels = true, disableMovement = false, disableCarMovement = false, disableCombat = true }})
 	ExecuteCommand('e smokeweed')
 	Citizen.Wait(15000)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 6)
@@ -84,7 +84,7 @@ AddEventHandler('linden_inventory:onFixkit', function()
 		end
 
 		if DoesEntityExist(vehicle) then
-			exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 30000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49 }})
+			exports['mythic_progbar']:Progress({name = 'vehiclerepair', duration = 30000, label = 'Repairing Vehicle', useWhileDead = false, canCancel = false, controlDisables = { disableCancels = true, disableMovement = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', anim = 'machinic_loop_mechandplayer', flags = 49 }})
 			Citizen.Wait(30000)
 			TriggerServerEvent('linden_inventory:UseFixKitNow')
 			SetVehicleFixed(vehicle)
@@ -115,7 +115,7 @@ AddEventHandler('linden_inventory:ifak', function()
 	if pedHealth >= 200 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 100% health', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'ifak', duration = 25000, label = 'Applying IFAK', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'ifak', duration = 25000, label = 'Applying IFAK', useWhileDead = false, canCancel = false, controlDisables = { disableCancels = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(25000)
 		SetEntityHealth(playerPed, newHealth)
 		TriggerServerEvent('linden_inventory:UseIFAKNow')
@@ -133,7 +133,7 @@ AddEventHandler('linden_inventory:bandage', function()
 	elseif pedHealth >= 161 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already above 75% health', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'bandage', duration = 5000, label = 'Applying Bandage', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'bandage', duration = 5000, label = 'Applying Bandage', useWhileDead = false, canCancel = false, controlDisables = { disableCancels = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(5000)
 		SetEntityHealth(playerPed, newHealth)
 		TriggerServerEvent('linden_inventory:UseBandageNow')
@@ -150,7 +150,7 @@ AddEventHandler('linden_inventory:heavyarmor', function()
 	if pedArmor >= 100 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 100% armor', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'heavyarmor', duration = 25000, label = 'Equipping Heavy Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'heavyarmor', duration = 25000, label = 'Equipping Heavy Armor', useWhileDead = false, canCancel = false, controlDisables = { disableCancels = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(25000)
 		SetPedArmour(playerPed, 100)
 		TriggerServerEvent('linden_inventory:UseHeavyArmorNow')
@@ -167,7 +167,7 @@ AddEventHandler('linden_inventory:lightarmor', function()
 	elseif pedArmor >= 26 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already above 25% armor', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'lightarmor', duration = 15000, label = 'Equipping Light Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'lightarmor', duration = 15000, label = 'Equipping Light Armor', useWhileDead = false, canCancel = false, controlDisables = { disableCancels = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(15000)
 		SetPedArmour(playerPed, 25)
 		TriggerServerEvent('linden_inventory:UseLightArmorNow')
