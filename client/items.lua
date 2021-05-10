@@ -1,5 +1,7 @@
 local _source = source
 
+
+-- Hunger Decreasing Items
 AddEventHandler('linden_inventory:burger', function()
     TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 5000})
@@ -30,6 +32,8 @@ AddEventHandler('linden_inventory:bread', function()
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 5000})
 end)
 
+
+-- Thirst Decreasing Items
 AddEventHandler('linden_inventory:water', function()
     TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 5000})
@@ -45,6 +49,24 @@ AddEventHandler('linden_inventory:coffee', function()
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 5000})
 end)
 
+
+-- Stress Relieving Items
+AddEventHandler('linden_inventory:smokecigarette', function()
+	ExecuteCommand('e smoke')
+	Citizen.Wait(7500)
+    TriggerEvent('cd_playerhud:status:remove', 'stress', 2)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Stress Relieved', length = 5000})
+end)
+
+AddEventHandler('linden_inventory:smokeweed', function()
+	ExecuteCommand('e smokeweed')
+	Citizen.Wait(15000)
+    TriggerEvent('cd_playerhud:status:remove', 'stress', 6)
+	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Stress Relieved', length = 5000})
+end)
+
+
+-- Fixkit
 RegisterNetEvent('linden_inventory:onFixkit')
 AddEventHandler('linden_inventory:onFixkit', function()
 	local playerPed = PlayerPedId()
@@ -76,24 +98,49 @@ AddEventHandler('linden_inventory:onFixkit', function()
 	end
 end)
 
-AddEventHandler('linden_inventory:bandage', function()
-	local maxHealth = 200
-	local health = GetEntityHealth(playerPed)
-	local newHealth = math.min(maxHealth, math.floor(health + maxHealth / 16))
-	SetEntityHealth(playerPed, newHealth)
-	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Bandage Used', length = 5000})
-end)
 
-AddEventHandler('linden_inventory:ifak', function()
-	local maxHealth = 200
-	SetEntityHealth(playerPed, maxHealth)
-	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'IFAK Used', length = 5000})
-end)
-
+-- Bag Items - W.I.P
 AddEventHandler('linden_inventory:duffel', function()
--- Working on Duffel System ;D
 end)
 
+
+-- Healing items
+RegisterNetEvent('linden_inventory:ifak')
+AddEventHandler('linden_inventory:ifak', function()
+    local playerPed = GetPlayerPed(-1)
+	local pedHealth = GetEntityHealth(playerPed)
+	local newHealth = 200
+	if pedHealth >= 200 then
+		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 100% health', length = 5000})
+	else
+		exports['mythic_progbar']:Progress({name = 'ifak', duration = 25000, label = 'Applying IFAK', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+    	Citizen.Wait(25000)
+		SetEntityHealth(playerPed, newHealth)
+		TriggerServerEvent('linden_inventory:UseIFAKNow')
+    	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'IFAK Applied', length = 5000})
+	end
+end)
+
+RegisterNetEvent('linden_inventory:bandage')
+AddEventHandler('linden_inventory:bandage', function()
+    local playerPed = GetPlayerPed(-1)
+	local pedHealth = GetEntityHealth(playerPed)
+	local newHealth = (pedHealth + 15)
+	if pedHealth == 160 then
+		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 75% health', length = 5000})
+	elseif pedHealth >= 161 then
+		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already above 75% health', length = 5000})
+	else
+		exports['mythic_progbar']:Progress({name = 'bandage', duration = 5000, label = 'Applying Bandage', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+    	Citizen.Wait(5000)
+		SetEntityHealth(playerPed, newHealth)
+		TriggerServerEvent('linden_inventory:UseBandageNow')
+    	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Bandage Applied', length = 5000})
+	end
+end)
+
+
+-- Armor Items
 RegisterNetEvent('linden_inventory:heavyarmor')
 AddEventHandler('linden_inventory:heavyarmor', function()
     local playerPed = GetPlayerPed(-1)
@@ -101,7 +148,7 @@ AddEventHandler('linden_inventory:heavyarmor', function()
 	if pedArmor >= 100 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 100% armor', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'heavyarmor', duration = 25000, label = 'Equipping Heavy Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprint = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'heavyarmor', duration = 25000, label = 'Equipping Heavy Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(25000)
 		SetPedArmour(playerPed, 100)
 		TriggerServerEvent('linden_inventory:UseHeavyArmorNow')
@@ -113,28 +160,15 @@ RegisterNetEvent('linden_inventory:lightarmor')
 AddEventHandler('linden_inventory:lightarmor', function()
     local playerPed = GetPlayerPed(-1)
 	local pedArmor = GetPedArmour(playerPed)
-	if pedArmor >= 25 then
+	if pedArmor == 25 then
 		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already at 25% armor', length = 5000})
+	elseif pedArmor >= 26 then
+		TriggerEvent('mythic_notify:client:SendAlert', {type = 'error', text = 'Already above 25% armor', length = 5000})
 	else
-		exports['mythic_progbar']:Progress({name = 'lightarmor', duration = 15000, label = 'Equipping Light Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprint = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
+		exports['mythic_progbar']:Progress({name = 'lightarmor', duration = 15000, label = 'Equipping Light Armor', useWhileDead = false, canCancel = false, controlDisables = { disableSprintJump = true, disableCarMovement = true, disableCombat = true }, animation = {animDict = 'clothingtie', anim = 'try_tie_negative_a', flags = 49 }})
     	Citizen.Wait(15000)
 		SetPedArmour(playerPed, 25)
 		TriggerServerEvent('linden_inventory:UseLightArmorNow')
     	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Light Armor Equiped', length = 5000})
 	end
 end)
-
-AddEventHandler('linden_inventory:smokecigarette', function()
-	ExecuteCommand('e smoke')
-	Citizen.Wait(7500)
-    TriggerEvent('cd_playerhud:status:remove', 'stress', 2)
-	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Stress Relieved', length = 5000})
-end)
-
-AddEventHandler('linden_inventory:smokeweed', function()
-	ExecuteCommand('e smokeweed')
-	Citizen.Wait(15000)
-    TriggerEvent('cd_playerhud:status:remove', 'stress', 6)
-	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Stress Relieved', length = 5000})
-end)
-

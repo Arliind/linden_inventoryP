@@ -116,45 +116,8 @@ Config.ItemList = {
 	['at_skin_sniper_patriotic'] = { component = {`COMPONENT_HEAVYSNIPER_MK2_CAMO_IND_01`, `COMPONENT_MARKSMANRIFLE_MK2_CAMO_IND_01`}, useTime = 2500 },
 	['at_skin_sniper_gold'] = { component = {`COMPONENT_MARKSMANRIFLE_VARMOD_LUXE`}, useTime = 2500 },
 
-	['water'] = {
-		thirst = 200000,
-		animDict = 'mp_player_intdrink',
-		anim = 'loop_bottle',
-		model = 'prop_ld_flow_bottle',
-		flags = 49,
-		coords = { x = 0.03, y = 0.0, z = 0.02 },
-		rotation = { x = 0.0, y = -13.5, z = -1.5 },
-		useTime = 5000,
-		event = 'linden_inventory:water',
-		actionType = 'Drinking Water'
-	},
 
-	['cola'] = {
-		thirst = 200000,
-		animDict = 'mp_player_intdrink',
-		anim = 'loop_bottle',
-		model = 'prop_ecola_can',
-		flags = 49,
-		coords = { x = 0.01, y = 0.0, z = 0.06 },
-		rotation = { x = 5.0, y = -1.5, z = -180.5 },
-		useTime = 5000,
-		event = 'linden_inventory:cola',
-		actionType = 'Drinking Cola'
-	},
-
-	['coffee'] = {
-		thirst = 200000,
-		animDict = 'mp_player_intdrink',
-		anim = 'loop_bottle',
-		model = 'p_ing_coffeecup_01',
-		flags = 49,
-		coords = { x = 0.01, y = 0.0, z = 0.06 },
-		rotation = { x = 5.0, y = -1.5, z = -180.5 },
-		useTime = 5000,
-		event = 'linden_inventory:coffee',
-		actionType = 'Drinking Coffee'
-	},
-
+	-- Hunger Decreasing Items
 	['burger'] = {
 		hunger = 200000,
 		animDict = 'mp_player_inteat@burger',
@@ -233,67 +196,49 @@ Config.ItemList = {
 		actionType = 'Eating Bread'
 	},
 
-	['bandage'] = {
-		animDict = 'missheistdockssetup1clipboard@idle_a',
-		anim = 'idle_a',
+	
+-- Thirst Decreasing Items
+	['water'] = {
+		thirst = 200000,
+		animDict = 'mp_player_intdrink',
+		anim = 'loop_bottle',
+		model = 'prop_ld_flow_bottle',
 		flags = 49,
-		model = '',
-		coords = { x = -0.14, y = 0.02, z = -0.08 },
-		rotation = { x = -50.0, y = -50.0, z = 0.0 },
-		useTime = 2500,
-		event = 'linden_inventory:bandage',
-		actionType = 'Applying Bandage',
-		disableCarMovement = true
-	},
-
-	['ifak'] = {
-		animDict = 'missheistdockssetup1clipboard@idle_a',
-		anim = 'idle_a',
-		flags = 49,
-		model = 'prop_rolled_sock_02',
-		coords = { x = -0.14, y = 0.02, z = -0.08 },
-		rotation = { x = -50.0, y = -50.0, z = 0.0 },
-		useTime = 30000,
-		event = 'linden_inventory:ifak',
-		actionType = 'Applying IFAK',
-		disableCarMovement = true
-	},
-
-	['lockpick'] = {
-		disableMove = true,
-		animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
-		anim = 'machinic_loop_mechandplayer',
-		useTime = 2000,
-		consume = 0,
-		dofirst = 'esx_lockpick:onUse',
-		actionType = 'Lockpicking'
-	},
-
-	['duffel'] = {
-		disableMove = false,
-		animDict = 'missexile3',
-		anim = 'ex03_dingy_search_case_b_michael',
+		coords = { x = 0.03, y = 0.0, z = 0.02 },
+		rotation = { x = 0.0, y = -13.5, z = -1.5 },
 		useTime = 5000,
-		consume = 0,
-		event = 'linden_inventory:duffel',
-		actionType = 'Opening Duffel Bag'
+		event = 'linden_inventory:water',
+		actionType = 'Drinking Water'
 	},
 
-	['armor'] = {
-        consume = 0,
-        event = 'linden_inventory:heavyarmor'
+	['cola'] = {
+		thirst = 200000,
+		animDict = 'mp_player_intdrink',
+		anim = 'loop_bottle',
+		model = 'prop_ecola_can',
+		flags = 49,
+		coords = { x = 0.01, y = 0.0, z = 0.06 },
+		rotation = { x = 5.0, y = -1.5, z = -180.5 },
+		useTime = 5000,
+		event = 'linden_inventory:cola',
+		actionType = 'Drinking Cola'
 	},
 
-	['light_armor'] = {
-		consume = 0,
-		event = 'linden_inventory:lightarmor'
-},
-
-	['fixkit'] = {
-        consume = 0,
-        event = 'linden_inventory:onFixkit'
+	['coffee'] = {
+		thirst = 200000,
+		animDict = 'mp_player_intdrink',
+		anim = 'loop_bottle',
+		model = 'p_ing_coffeecup_01',
+		flags = 49,
+		coords = { x = 0.01, y = 0.0, z = 0.06 },
+		rotation = { x = 5.0, y = -1.5, z = -180.5 },
+		useTime = 5000,
+		event = 'linden_inventory:coffee',
+		actionType = 'Drinking Coffee'
 	},
 
+
+-- Stress Relieving Items
 	['cigarette'] = {
 		disableMove = false,
 		animDict = '',
@@ -312,6 +257,44 @@ Config.ItemList = {
 		consume = 1,
 		dofirst = 'linden_inventory:smokeweed',
 		actionType = 'Smoking Weed'
+	},
+
+
+-- Fixkit
+	['fixkit'] = {
+		consume = 0,
+		event = 'linden_inventory:onFixkit'
+	},
+
+	
+-- Bag Items (W.I.P)
+	['duffel'] = {
+		consume = 0,
+		event = 'linden_inventory:duffel',
+	},
+
+	
+-- Healing Items
+	['bandage'] = {
+        consume = 0,
+        event = 'linden_inventory:bandage'
+	},
+
+	['ifak'] = {
+        consume = 0,
+        event = 'linden_inventory:ifak'
+	},
+
+
+-- Armor Items
+	['armor'] = {
+        consume = 0,
+        event = 'linden_inventory:heavyarmor'
+	},
+
+	['light_armor'] = {
+		consume = 0,
+		event = 'linden_inventory:lightarmor'
 	},
 
 }

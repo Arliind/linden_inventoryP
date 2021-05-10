@@ -1078,20 +1078,51 @@ end, true)]]
 	end
 end, true)]]
 
+
+-------------------------------------------------------------------------------------------------
+
+-- Remove Items On Use
+
+-------------------------------------------------------------------------------------------------
+
+-- Remove Fixkit on Successful Use
 RegisterServerEvent('linden_inventory:UseFixKitNow')
 AddEventHandler('linden_inventory:UseFixKitNow', function()
 local xPlayer  = ESX.GetPlayerFromId(source)
 xPlayer.removeInventoryItem('fixkit', 1)
 end)
 
+
+-- Remove HeavyArmor on Successful Use
 RegisterServerEvent('linden_inventory:UseHeavyArmorNow')
 AddEventHandler('linden_inventory:UseHeavyArmorNow', function()
 local xPlayer  = ESX.GetPlayerFromId(source)
 xPlayer.removeInventoryItem('armor', 1)
 end)
 
+
+-- Remove LightArmor on Successful Use
 RegisterServerEvent('linden_inventory:UseLightArmorNow')
 AddEventHandler('linden_inventory:UseLightArmorNow', function()
 local xPlayer  = ESX.GetPlayerFromId(source)
 xPlayer.removeInventoryItem('light_armor', 1)
 end)
+
+
+-- Remove Bandage on Successful Use
+RegisterServerEvent('linden_inventory:UseBandageNow')
+AddEventHandler('linden_inventory:UseBandageNow', function()
+local xPlayer  = ESX.GetPlayerFromId(source)
+xPlayer.removeInventoryItem('bandage', 1)
+end)
+
+
+-- Remove IFAK on Successful Use
+RegisterServerEvent('linden_inventory:UseIFAKNow')
+AddEventHandler('linden_inventory:UseIFAKNow', function()
+local xPlayer  = ESX.GetPlayerFromId(source)
+xPlayer.removeInventoryItem('ifak', 1)
+end)
+
+
+-------------------------------------------------------------------------------------------------
