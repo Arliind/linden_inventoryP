@@ -52,13 +52,15 @@ end)
 
 -- Stress Relieving Items
 AddEventHandler('linden_inventory:smokecigarette', function()
+	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 7500, label = 'Smoking Cigarette', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = nil, anim = nil, flags = 0 }})
 	ExecuteCommand('e smoke')
 	Citizen.Wait(7500)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 2)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Stress Relieved', length = 5000})
 end)
 
-AddEventHandler('linden_inventory:smokeweed', function()
+AddEventHandler('linden_inventory:smokejoint2g', function()
+	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 15000, label = 'Smoking Joint', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = nil, anim = nil, flags = 0 }})
 	ExecuteCommand('e smokeweed')
 	Citizen.Wait(15000)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 6)

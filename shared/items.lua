@@ -231,17 +231,13 @@ Config.ItemList = {
 
 -- Stress Relieving Items
 	['cigarette'] = {
-		useTime = 7500,
 		consume = 1,
-		dofirst = 'linden_inventory:smokecigarette',
-		actionType = 'Smoking Cigarette'
+		event = 'linden_inventory:smokecigarette'
 	},
 
 	['joint2g'] = {
-		useTime = 15000,
 		consume = 1,
-		dofirst = 'linden_inventory:smokeweed',
-		actionType = 'Smoking Weed'
+		event = 'linden_inventory:smokejoint2g'
 	},
 
 
