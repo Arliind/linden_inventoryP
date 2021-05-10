@@ -3,17 +3,17 @@ local _source = source
 
 -- Hunger Decreasing Items
 AddEventHandler('linden_inventory:burger', function()
-    TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+    TriggerEvent('cd_playerhud:status:add', 'hunger', 15)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 5000})
 end)
 
 AddEventHandler('linden_inventory:panini', function()
-    TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+    TriggerEvent('cd_playerhud:status:add', 'hunger', 20)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 5000})
 end)
 
 AddEventHandler('linden_inventory:cashew', function()
-    TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+    TriggerEvent('cd_playerhud:status:add', 'hunger', 6)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 5000})
 end)
 
@@ -23,29 +23,29 @@ AddEventHandler('linden_inventory:chip', function()
 end)
 
 AddEventHandler('linden_inventory:sandwich', function()
-    TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+    TriggerEvent('cd_playerhud:status:add', 'hunger', 12)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 5000})
 end)
 
 AddEventHandler('linden_inventory:bread', function()
-    TriggerEvent('cd_playerhud:status:add', 'hunger', 8)
+    TriggerEvent('cd_playerhud:status:add', 'hunger', 10)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Hunger Decreased', length = 5000})
 end)
 
 
 -- Thirst Decreasing Items
 AddEventHandler('linden_inventory:water', function()
-    TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
+    TriggerEvent('cd_playerhud:status:add', 'thirst', 16)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 5000})
 end)
 
 AddEventHandler('linden_inventory:cola', function()
-    TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
+    TriggerEvent('cd_playerhud:status:add', 'thirst', 12)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 5000})
 end)
 
 AddEventHandler('linden_inventory:coffee', function()
-    TriggerEvent('cd_playerhud:status:add', 'thirst', 8)
+    TriggerEvent('cd_playerhud:status:add', 'thirst', 6)
 	TriggerEvent('mythic_notify:client:SendAlert', {type = 'inform', text = 'Thirst Decreased', length = 5000})
 end)
 
