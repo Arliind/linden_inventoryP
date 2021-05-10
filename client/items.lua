@@ -52,7 +52,7 @@ end)
 
 -- Stress Relieving Items
 AddEventHandler('linden_inventory:smokecigarette', function()
-	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 7500, label = 'Smoking Cigarette', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = nil, anim = nil, flags = 0 }})
+	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 7500, label = 'Smoking Cigarette', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = '', anim = ''}})
 	ExecuteCommand('e smoke')
 	Citizen.Wait(7500)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 2)
@@ -60,7 +60,7 @@ AddEventHandler('linden_inventory:smokecigarette', function()
 end)
 
 AddEventHandler('linden_inventory:smokejoint2g', function()
-	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 15000, label = 'Smoking Joint', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = nil, anim = nil, flags = 0 }})
+	exports['mythic_progbar']:Progress({name = 'smokejoint2g', duration = 15000, label = 'Smoking Joint', useWhileDead = false, canCancel = false, controlDisables = { disableMovement = false, disableCarMovement = false, disableCombat = true }, animation = {animDict = '', anim = '' }})
 	ExecuteCommand('e smokeweed')
 	Citizen.Wait(15000)
     TriggerEvent('cd_playerhud:status:remove', 'stress', 6)
