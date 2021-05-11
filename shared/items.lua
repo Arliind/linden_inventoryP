@@ -277,13 +277,4 @@ Config.ItemList = {
 		consume = 0,
 		event = 'linden_inventory:lightarmor'
 	},
-
---[[]	['fishingrod'] = {
-        consume = 0
-	},
-
-	['fishbait'] = {
-		consume = 0
-	},]]
-
 }
