@@ -3,10 +3,10 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 
--------------------------------------------------------------------------------------------------------------------------------------------
--- Fishing Stuff My Nigga
+-- Fishing Stuff
+-- Currently disabled in here because apparently it works without it being all in here.
 
-
+--[[
 ESX.RegisterUsableItem('turtlebait', function(source)
 
 	local _source = source
@@ -92,5 +92,4 @@ ESX.RegisterUsableItem('fishingrod', function(source)
 	local _source = source
 	TriggerClientEvent('fishing:fishstart', _source)
 end)
-
--------------------------------------------------------------------------------------------------------------------------------------------
+]]
