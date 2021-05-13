@@ -168,9 +168,9 @@ AddEventHandler('linden_inventory:setPlayerInventory', function(xPlayer, data)
 	local invid = xPlayer.source
 	local PoliceWeight = 20000
 	if xPlayer.job.name == 'police' then
-		maxWeight = Config.PlayerWeight + PoliceWeight
+		maxWeight = ESX.GetConfig().MaxWeight + PoliceWeight
 	else
-		maxWeight = Config.PlayerWeight
+		maxWeight = ESX.GetConfig().MaxWeight
 	end
 
 	Inventories[invid] = {
@@ -295,13 +295,15 @@ AddEventHandler('linden_inventory:openInventory', function(data, player)
 			if CheckOpenable(xPlayer, id, data.coords) then
 				if not data.maxWeight then data.maxWeight = data.slots*8000 end
 				Inventories[id] = {
-					name = id,
+					id = id,
 					type = data.type,
 					slots = data.slots,
 					coords = data.coords,
 					maxWeight = data.maxWeight,
-					inventory = GetItems(id, data.type)
+					inventory = GetItems(id, data.type),
+					grade = data.grade,
 				}
+				if data.label then Inventories[id].name = data.label end
 				Opened[xPlayer.source] = {invid = id, type = data.type}
 				TriggerClientEvent('linden_inventory:openInventory', xPlayer.source, Inventories[xPlayer.source], Inventories[id])
 			end
@@ -311,7 +313,7 @@ AddEventHandler('linden_inventory:openInventory', function(data, player)
 			if CheckOpenable(xPlayer, id, data.coords) then
 				if not data.maxWeight then data.maxWeight = data.slots*8000 end
 				Inventories[id] = {
-					name = id,
+					id = id,
 					owner = data.owner,
 					type = data.type,
 					slots = data.slots,
@@ -319,6 +321,7 @@ AddEventHandler('linden_inventory:openInventory', function(data, player)
 					maxWeight = data.maxWeight,
 					inventory = GetItems(id, data.type, data.owner)
 				}
+				if data.label then Inventories[id].name = data.label end
 				Opened[xPlayer.source] = {invid = id, type = data.type}
 				TriggerClientEvent('linden_inventory:openInventory', xPlayer.source, Inventories[xPlayer.source], Inventories[id])
 			end
@@ -1023,21 +1026,22 @@ end, true, {help = 'set account money', validate = true, arguments = {
 }})
 
 OpenStash = function(xPlayer, data)
-	TriggerEvent('linden_inventory:openInventory', {type = 'stash', owner = data.owner, id = data.name, slots = data.slots, coords = data.coords, job = data.job  }, xPlayer)
+	TriggerEvent('linden_inventory:openInventory', {type = 'stash', owner = data.owner, id = data.name, label = data.label, slots = data.slots, coords = data.coords, job = data.job, grade = data.grade }, xPlayer)
 end
 exports('OpenStash', OpenStash)
 
 ESX.RegisterCommand('evidence', 'user', function(xPlayer, args, showError)
-	if xPlayer.job.name == 'police' then
-    	local evidence = Config.PoliceEvidence1
-    	local coords = xPlayer.getCoords()
-    	if #(Config.PoliceEvidence1 - coords) > 15 then
-            if #(Config.PoliceEvidence2 - coords) > 15 then
+    if xPlayer.job.name == 'police' then
+        local evidence = Config.PoliceEvidence
+        local coords = xPlayer.getCoords()
+        coords = vector3(coords.x, coords.y, coords.z)
+        if #(Config.PoliceEvidence - coords) > 3 then
+            if #(Config.PoliceEvidence2 - coords) > 3 then
                 return
             else evidence = Config.PoliceEvidence2 end
         end
 
-        local stash = {name = 'evidence-'..args.evidence, slots = Config.PlayerSlots, job = 'police', coords = evidence}
+        local stash = {name = 'evidence-'..args.evidence, slots = Config.PlayerSlots, job = 'police', coords = evidence, grade = 4}
         OpenStash(xPlayer, stash)
     end
 end, true, {help = 'open police evidence', validate = true, arguments = {

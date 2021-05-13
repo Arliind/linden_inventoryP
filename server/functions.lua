@@ -285,6 +285,7 @@ GetItems = function(id, type, owner)
 		-- insert [or type == 'glovebox'] after type == 'trunk'
 		if type == 'trunk' then
 			local plate = string.match(id, "-(.*)")
+			if Config.TrimPlate then plate = ESX.Math.Trim(plate) end
 			local result = exports.ghmattimysql:scalarSync('SELECT plate, owner FROM owned_vehicles WHERE plate = @plate', {
 				['@plate'] = plate
 			})
