@@ -744,7 +744,7 @@ RegisterCommand('vehinv', function()
 			lastVehicle = nil
 			local class = GetVehicleClass(vehicle)
 			if vehicle and Config.Trunks[class] and #(playerCoords - vehiclePos) < 6 then
-				if GetVehicleDoorLockStatus(vehicle) ~= 2 then
+				if GetVehicleDoorLockStatus(vehicle) ~= 2 and GetVehicleDoorLockStatus(vehicle) ~= 4 then
 					local vehHash = GetEntityModel(vehicle)
 					local checkVehicle = Config.VehicleStorage[vehHash]
 					if checkVehicle == 1 then open, vehBone = 4, GetEntityBoneIndexByName(vehicle, 'bonnet')
