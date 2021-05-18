@@ -1,4 +1,4 @@
-ESX = nil
+ESX = exports['es_extended']:getSharedObject()
 Items = {}
 Usables = {}
 Players = {}
@@ -29,8 +29,6 @@ local message = function(msg, colour)
 	print(('^%s[%s]^7 %s'):format(colour, type, msg))
 end
 
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-
 Citizen.CreateThread(function()
 	if ESX == nil then failed('Unable to retrieve ESX object') end
 	local OneSync = GetConvar('onesync_enabled', false) == 'true'
@@ -53,10 +51,45 @@ Citizen.CreateThread(function()
 	end
 end)
 
-exports.ghmattimysql:ready(function()
-	while GetResourceState('linden_inventory') ~= 'started' do
-		Citizen.Wait(0)
+Citizen.CreateThread(function()
+	local ignore = {[0] = '?', [966099553] = 'shovel'}
+	while true do
+		Citizen.Wait(20000)
+		for invId, data in pairs(Inventories) do
+			if type(invId) == 'number' and not IsPlayerAceAllowed(data.id, 'command.save') then
+				local ped = GetPlayerPed(data.id)
+				if ped then
+					local hash, curWeapon = GetSelectedPedWeapon(ped)
+					if hash ~= `WEAPON_UNARMED` and not ignore[hash] then
+						curWeapon = ESX.GetWeaponFromHash(hash)
+						if curWeapon then
+							local xPlayer = ESX.GetPlayerFromId(data.id)
+							if xPlayer then
+								if Items[curWeapon.name] then
+									local item = getInventoryItem(xPlayer, curWeapon.name)
+									if item.count == 0 then
+										TriggerClientEvent('linden_inventory:clearWeapons', data.id)
+										print( ('^1[warning]^3 ['..data.id..'] '..GetPlayerName(data.id)..' may be cheating (using '..curWeapon.name..' but does not have any)^7'):format(data.id, GetPlayerName(data.id)) )
+										--TriggerBanEvent(xPlayer, 'using "'..curWeapon.name..'" but does not have any') end
+									end
+								else
+									TriggerBanEvent(xPlayer, 'using an invalid weapon ("'..curWeapon.name..'")')
+								end
+							end
+						else
+							print('^1[warning]^3 ['..data.id..'] '..GetPlayerName(data.id)..' may be cheating (unknown weapon '..hash..')^7')
+						end
+					end
+				end
+			end
+			Citizen.Wait(200)
+		end
 	end
+end)
+
+exports.ghmattimysql:ready(function()
+	Citizen.Wait(500)
+	ESX.UsableItemsCallbacks = exports['es_extended']:getSharedObject().UsableItemsCallbacks
 	if Status[1] ~= 'error' then
 		local result = exports.ghmattimysql:executeSync('SELECT * FROM items', {})
 		if result then
@@ -120,6 +153,7 @@ ESX.RegisterServerCallback('linden_inventory:setup', function(source, cb)
 			while xPlayer.get('linventory') ~= true do Citizen.Wait(100) end
 		end
 	end
+	while xPlayer.getName() == GetPlayerName(xPlayer.source) do Citizen.Wait(100) end
 	Inventories[xPlayer.source].name = xPlayer.getName()
 	local data = {drops = Drops, name = Inventories[xPlayer.source].name, inventory = Inventories[xPlayer.source].inventory, usables = Usables }
 	cb(data)
@@ -336,18 +370,20 @@ AddEventHandler('linden_inventory:openTargetInventory', function(targetId)
 	if source ~= targetId and xTarget and xPlayer then
 		if CheckOpenable(xPlayer, xTarget.source, GetEntityCoords(GetPlayerPed(targetId))) then
 			local TargetPlayer = Inventories[xTarget.source]
-			local data = {
-				id = xTarget.source,
-				name = 'Player '..xTarget.source,
-				type = 'TargetPlayer',
-				slots = TargetPlayer.slots,
-				maxWeight = TargetPlayer.maxWeight,
-				weight = TargetPlayer.weight,
-				inventory = TargetPlayer.inventory
-			}
-			TriggerClientEvent('linden_inventory:openInventory',  xPlayer.source, Inventories[xPlayer.source], data)
-			Opened[xPlayer.source] = {invid = xTarget.source, type = data.type}
-			Opened[xTarget.source] = {invid = xPlayer.source, type = data.type}
+			if TargetPlayer then
+				local data = {
+					id = xTarget.source,
+					name = 'Player '..xTarget.source,
+					type = 'TargetPlayer',
+					slots = TargetPlayer.slots,
+					maxWeight = TargetPlayer.maxWeight,
+					weight = TargetPlayer.weight,
+					inventory = TargetPlayer.inventory
+				}
+				TriggerClientEvent('linden_inventory:openInventory',  xPlayer.source, Inventories[xPlayer.source], data)
+				Opened[xPlayer.source] = {invid = xTarget.source, type = data.type}
+				Opened[xTarget.source] = {invid = xPlayer.source, type = data.type}
+			end
 		end
 	end
 end)
@@ -753,19 +789,6 @@ AddEventHandler('linden_inventory:devtool', function()
 	end
 end)
 
-RegisterNetEvent('linden_inventory:weaponMismatch')
-AddEventHandler('linden_inventory:weaponMismatch', function(weapon)
-	local xPlayer = ESX.GetPlayerFromId(source)
-	if xPlayer then
-		if Items[weapon] then
-			local count = getInventoryItem(xPlayer, weapon).count
-			if count < 1 then TriggerBanEvent(xPlayer, 'using "'..weapon..'" but item count is '..count) end
-		else
-			TriggerBanEvent(xPlayer, 'using "'..weapon..'" but item is invalid')
-		end
-	end
-end)
-
 RegisterNetEvent('linden_inventory:giveItem')
 AddEventHandler('linden_inventory:giveItem', function(data, target)
 	local xPlayer = ESX.GetPlayerFromId(source)
@@ -1041,7 +1064,7 @@ ESX.RegisterCommand('evidence', 'user', function(xPlayer, args, showError)
             else evidence = Config.PoliceEvidence2 end
         end
 
-        local stash = {name = 'evidence-'..args.evidence, slots = Config.PlayerSlots, job = 'police', coords = evidence, grade = 4}
+        local stash = {name = 'evidence-'..args.evidence, label = 'Police Evidence (#'..args.evidence..')', slots = Config.PlayerSlots, job = 'police', coords = evidence, grade = 4}
         OpenStash(xPlayer, stash)
     end
 end, true, {help = 'open police evidence', validate = true, arguments = {
@@ -1077,6 +1100,7 @@ end, true, {help = 'Return a Confiscated an Inventory', validate = true, argumen
 --[[RegisterCommand('closeallinv', function(source, args, rawCommand)
 	if source > 0 then return end
 	TriggerClientEvent("linden_inventory:closeInventory", -1)
+	Opened = {}
 end, true)]]
 
 --[[RegisterCommand('maxweight', function(source, args, rawCommand)
