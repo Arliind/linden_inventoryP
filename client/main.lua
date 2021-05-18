@@ -316,14 +316,19 @@ AddEventHandler('linden_inventory:removeDrop', function(id, owner)
 end)
 
 HolsterWeapon = function(item)
-	ClearPedSecondaryTask(playerPed)
-	loadAnimDict('reaction@intimidation@1h')
-	TaskPlayAnimAdvanced(playerPed, 'reaction@intimidation@1h', 'outro', GetEntityCoords(playerPed, true), 0, 0, GetEntityHeading(playerPed), 8.0, 3.0, -1, 50, 0, 0, 0)
-	Citizen.Wait(1600)
-	DisarmPlayer()
-	ClearPedSecondaryTask(playerPed)
-	SetPedUsingActionMode(playerPed, -1, -1, 1)
-	SendNUIMessage({ message = 'notify', item = item, text = _U('holstered') })
+    if ESX.PlayerData.job.name == 'police' then
+        loadAnimDict('reaction@intimidation@cop@unarmed')
+        TaskPlayAnimAdvanced(playerPed, 'reaction@intimidation@cop@unarmed', 'intro', GetEntityCoords(playerPed, true), 0, 0, GetEntityHeading(playerPed), 8.0, 3.0, -1, 50, 1, 0, 0)
+        Citizen.Wait(800)
+    else
+        loadAnimDict('reaction@intimidation@1h')
+        TaskPlayAnimAdvanced(playerPed, 'reaction@intimidation@1h', 'intro', GetEntityCoords(playerPed, true), 0, 0, GetEntityHeading(playerPed), 8.0, 3.0, -1, 50, 0, 0, 0)
+        Citizen.Wait(1600)
+    end
+    DisarmPlayer()
+    ClearPedSecondaryTask(playerPed)
+    SetPedUsingActionMode(playerPed, -1, -1, 1)
+    SendNUIMessage({ message = 'notify', item = item, text = _U('holstered') })
 end
 
 DrawWeapon = function(item)
