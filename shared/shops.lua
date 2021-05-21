@@ -113,7 +113,7 @@ Config.BlackMarketWeapons = {
 	--	{ name = 'WEAPON_COMPACTRIFLE', price = 250000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
 		{ name = 'WEAPON_PISTOL50', price = 100000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
 		{ name = 'WEAPON_MICROSMG', price = 150000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
-		{ name = 'WEAPON_NAVYREVOLVER', price = 1250000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+		{ name = 'WEAPON_NAVYREVOLVER', price = 125000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
 	--	{ name = 'WEAPON_DOUBLEACTION', price = 140000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
 	--	{ name = 'WEAPON_SAWNOFFSHOTGUN', price = 150000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
 	--	{ name = 'WEAPON_DBSHOTGUN', price = 100000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
