@@ -265,7 +265,7 @@ end)
 
 RegisterNetEvent('linden_inventory:itemNotify')
 AddEventHandler('linden_inventory:itemNotify', function(item, count, slot, notify)
-	if count > 0 then notification = ('%s %sx'):format(notify, count)
+	if count > 0 then notification = _U(notify)..' '..count..'x'
 	else notification = _U('used') end
 	if type(slot) == 'table' then
 		for k,v in pairs(slot) do
@@ -484,6 +484,7 @@ TriggerLoops = function()
 			end
 			if isBusy or useItemCooldown then
 				DisableControlAction(0, 24, true)
+				DisableControlAction(0, 19, true)
 				DisableControlAction(0, 25, true)
 				DisableControlAction(0, 142, true)
 				DisableControlAction(0, 257, true)
@@ -1011,3 +1012,35 @@ Citizen.CreateThread(function()
       TaskPlayAnim(ped,"mini@strip_club@idles@bouncer@base","base", 8.0, 0.0, -1, 1, 0, 0, 0, 0)
     end
 end)
+
+-- Dumpsters (W.I.P)
+--[[Citizen.CreateThread(function()
+
+    local dumpsters = {218085040, 666561306, -58485588, -206690185, 1511880420, 682791951}
+    exports['bt-target']:AddTargetModel(dumpsters, {
+        options = {
+            {
+                event = "linden_inventory:openDumpster",
+                icon = "fas fa-dumpster",
+                label = "Search Dumpster",
+            },
+        },
+        job = {"all"},
+        distance = 2.5
+    })
+end)
+
+RegisterNetEvent('linden_inventory:openDumpster')
+AddEventHandler('linden_inventory:openDumpster', function()
+    local dumpsters = {218085040, 666561306, -58485588, -206690185, 1511880420, 682791951}
+    local ped = GetPlayerPed(-1)
+    local pos = GetEntityCoords(ped)
+    for i = 1, #dumpsters do 
+        local dumpster = GetClosestObjectOfType(pos.x, pos.y, pos.z, 1.0, dumpsters[i], false, false, false)
+        local dumpPos = GetEntityCoords(dumpster)
+        local dist = GetDistanceBetweenCoords(pos.x, pos.y, pos.z, dumpPos.x, dumpPos.y, dumpPos.z, true)
+        if dist < 2.5 then 
+            exports['linden_inventory']:OpenStash({ name = 'Dumpster-'..dumpster, slots = 20})
+        end
+    end 
+end)]]
