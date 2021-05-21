@@ -104,7 +104,20 @@ Config.PoliceShop = {
 Config.BlackMarketWeapons = {
 	name = 'If you find this then fuck off',
 	inventory = {
-		{ name = 'WEAPON_COMBATPDW', price = 1000000000, metadata = { registered = false, description = 'Untraceable'} },
+		{ name = 'WEAPON_MACHETE', price = 20000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+		{ name = 'WEAPON_MOLOTOV', price = 35000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_GUSENBERG', price = 400000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_MG', price = 1000000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_COMBATPDW', price = 600000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_ASSAULTRIFLE_MK2', price = 750000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_COMPACTRIFLE', price = 250000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+		{ name = 'WEAPON_PISTOL50', price = 100000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+		{ name = 'WEAPON_MICROSMG', price = 150000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+		{ name = 'WEAPON_NAVYREVOLVER', price = 1250000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_DOUBLEACTION', price = 140000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_SAWNOFFSHOTGUN', price = 150000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_DBSHOTGUN', price = 100000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
+	--	{ name = 'WEAPON_PUMPSHOTGUN_MK2', price = 400000, metadata = { registered = false, description = 'Marked for police seizure - Highly Illegal'} },
 	}
 }
 
@@ -174,6 +187,6 @@ Config.Shops = {
 	{ type = Config.Medicine, job = 'ambulance', coords = vector3(1822.79, 3667.06, 34.27), name = 'Sandy Medicine Cabinet' }, -- Sandy Medicine Cabinet
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(950.8, -968.97, 39.51), name = 'Psst! Under The Desk' }, -- City Garage (Postal 8198), under the front desk
-	{ type = Config.BlackMarketWeapons, job = 'police', coords = vector3(1240.49, -2898.14, 32.21) }, -- BlackMarketWeapons by the docks
+	{ type = Config.BlackMarketWeapons, job = 'police', coords = vector3(1240.49, -2898.14, 33.0) }, -- BlackMarketWeapons by the docks
 	{ type = Config.BlackMarketItems, coords = vector3(1147.53,-1640.41, 36.6), currency = 'black_money' }, -- BlackMarketItems under the DAM
 }
