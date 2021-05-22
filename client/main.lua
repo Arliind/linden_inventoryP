@@ -1013,7 +1013,7 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Dumpsters (W.I.P) --
+-- Dumpsters (W.I.P)
 --[[Citizen.CreateThread(function()
 
     local dumpsters = {218085040, 666561306, -58485588, -206690185, 1511880420, 682791951}
