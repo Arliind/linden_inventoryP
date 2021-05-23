@@ -188,5 +188,5 @@ Config.Shops = {
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(1769.94, 3323.96, 41.44), name = 'Psst! Under The Desk' }, -- Flywheels, under the front desk
 	{ type = Config.Mechanic, job = 'mechanic', coords = vector3(950.8, -968.97, 39.51), name = 'Psst! Under The Desk' }, -- City Garage (Postal 8198), under the front desk
 	{ type = Config.BlackMarketWeapons, job = 'carsalesman', coords = vector3(1240.49, -2898.14, 33.0) }, -- BlackMarketWeapons by the docks
-	{ type = Config.BlackMarketItems, coords = vector3(1147.53,-1640.41, 36.6), currency = 'black_money' }, -- BlackMarketItems under the DAM
+	{ type = Config.BlackMarketItems, coords = vector3(-2291.1, 165.8, 167.6), currency = 'black_money' }, -- BlackMarketItems under the DAM
 }

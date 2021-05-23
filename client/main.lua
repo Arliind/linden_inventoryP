@@ -989,7 +989,7 @@ AddEventHandler('linden_inventory:useItem',function(item)
 end)
 
 local coordinate = {
-    {1147.53,-1640.41,35.38,"Dealer",199.89,0x5761F4AD,"g_m_m_mexboss_01"}
+    {-2291.1,165.8,166.6,"Dealer",93.00,0x5761F4AD,"g_m_m_mexboss_01"}
 }
 
 Citizen.CreateThread(function()
