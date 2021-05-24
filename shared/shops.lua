@@ -50,6 +50,7 @@ Config.PoliceArmory = {
 		{ name = 'armor', price = 1500 },
 		{ name = 'ifak', price = 1500 },
 		{ name = 'fixkit', price = 1000 },
+		{ name = 'binoculars', price = 2500 },
 	}
 }
 
